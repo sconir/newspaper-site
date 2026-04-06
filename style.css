@@ -40,3 +40,11 @@ h2 {
     font-size: 14px;
     color: gray;
 }
+
+.article-image {
+  width: 100%;
+  max-width: 600px;
+  display: block;
+  margin: 15px auto;
+  border-radius: 8px;
+}
