@@ -1,2 +1,2 @@
-# newspaper-site
+# Puk
 project site
