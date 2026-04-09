@@ -1,9 +1,11 @@
-/* Переменные темы */
+/* ============================= */
+/* ПЕРЕМЕННЫЕ ТЕМЫ */
 :root {
     --bg-color: #f4f1ea;
     --text-color: #222;
     --article-bg: #fff;
     --h2-border: black;
+    --overlay-bg: rgba(255,255,255,0.6); /* фон для титульного блока */
 }
 
 body.dark-mode {
@@ -11,8 +13,11 @@ body.dark-mode {
     --text-color: #eee;
     --article-bg: #1e1e1e;
     --h2-border: #eee;
+    --overlay-bg: rgba(0,0,0,0.6); /* тёмный фон для overlay */
 }
 
+/* ============================= */
+/* ОБЩИЕ СТИЛИ */
 body {
     margin: 0;
     font-family: Georgia, serif;
@@ -21,7 +26,8 @@ body {
     transition: background 0.5s, color 0.5s;
 }
 
-/* Кнопка темы */
+/* ============================= */
+/* КНОПКА СМЕНЫ ТЕМЫ */
 #theme-toggle {
     position: fixed;
     top: 20px;
@@ -31,7 +37,8 @@ body {
     cursor: pointer;
 }
 
-/* Глобальный футер */
+/* ============================= */
+/* ГЛОБАЛЬНЫЙ ФУТЕР */
 #global-footer {
     position: fixed;
     bottom: 20px;
@@ -41,7 +48,8 @@ body {
     z-index: 1000;
 }
 
-/* Слайдер */
+/* ============================= */
+/* СЛАЙДЕР */
 .slider {
     position: relative;
     overflow: hidden;
@@ -63,7 +71,8 @@ body {
     position: relative;
 }
 
-/* Главный экран */
+/* ============================= */
+/* ГЛАВНЫЙ ЭКРАН */
 .intro {
     display: flex;
     justify-content: center;
@@ -73,10 +82,19 @@ body {
     min-height: 100vh;
 }
 
+/* Overlay с зависимостью от темы */
 .intro-overlay {
-    background: rgba(255,255,255,0.6);
+    background: var(--overlay-bg);
     padding: 20px 40px;
     border-radius: 10px;
+    transition: background 0.5s, color 0.5s;
+}
+
+/* Текст внутри overlay */
+.intro-overlay h1,
+.intro-overlay p {
+    color: var(--text-color);
+    transition: color 0.5s;
 }
 
 .intro h1 {
@@ -89,7 +107,8 @@ body {
     color: gray;
 }
 
-/* Статьи */
+/* ============================= */
+/* СТАТЬИ */
 article {
     max-width: 700px;
     margin: auto;
@@ -136,7 +155,8 @@ h2 {
     font-size: 14px;
 }
 
-/* Стрелки */
+/* ============================= */
+/* СТРЕЛКИ */
 .nav {
     position: fixed;
     top: 50%;
