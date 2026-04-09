@@ -7,21 +7,24 @@
 </head>
 <body>
 
-<header>
-    <h1>Кукуруза.com</h1>
-    <p class="date">6 апреля 2026</p>
-</header>
-
-<main>
-
 <div class="slider">
 
+    <!-- СТРЕЛКИ -->
     <button class="nav prev" onclick="prevSlide()">❮</button>
+    <button class="nav next" onclick="nextSlide()">❯</button>
 
     <div class="slides">
 
-        <article class="slide active">
-            <img class="article-image" src="images/article1.jpg" alt="Картинка">
+        <!-- ГЛАВНЫЙ ЭКРАН -->
+        <section class="slide active intro">
+            <h1>Кукуруза.com</h1>
+            <p>Современная интернет-газета о музыке, культуре и мнениях</p>
+            <p class="hint">→ Нажми стрелку справа</p>
+        </section>
+
+        <!-- СТАТЬЯ 1 -->
+        <article class="slide">
+            <img class="article-image" src="images/article1.jpg">
 
             <h2>Кто убил лирический реп?</h2>
             <p class="author">Автор: Илья Коряков</p>
@@ -31,8 +34,9 @@
             </p>
         </article>
 
+        <!-- СТАТЬЯ 2 -->
         <article class="slide">
-            <img class="article-image" src="images/article2.jpg" alt="Картинка">
+            <img class="article-image" src="images/article2.jpg">
 
             <h2>Venom Boy</h2>
             <p class="author">Автор: Sweet Dreams</p>
@@ -43,23 +47,14 @@
         </article>
 
     </div>
-
-    <button class="nav next" onclick="nextSlide()">❯</button>
-
 </div>
-
-</main>
-
-<footer>
-    <p>© 2026 Кукуруза.com</p>
-</footer>
 
 <script>
 let current = 0;
 const slides = document.querySelectorAll(".slide");
 
 function showSlide(index) {
-    slides.forEach(slide => slide.classList.remove("active"));
+    slides.forEach(s => s.classList.remove("active"));
     slides[index].classList.add("active");
 }
 
