@@ -14,35 +14,65 @@
 
 <main>
 
-    <article>
-        <img class="article-image" src="images/article1.jpg" alt="Картинка">
+<div class="slider">
 
-        <h2>Кто убил лирический реп?</h2>
-        <p class="author">Автор: Илья Коряков</p>
+    <button class="nav prev" onclick="prevSlide()">❮</button>
 
-        <p>
-            Что вообще можно считать лирическим репом? Я не знаю, но тогда кто знает?
-            Возможно, это просто очередной этап развития жанра, который мы не до конца понимаем.
-        </p>
-    </article>
+    <div class="slides">
 
-    <article>
-        <img class="article-image" src="images/article2.jpg" alt="Картинка">
+        <article class="slide active">
+            <img class="article-image" src="images/article1.jpg" alt="Картинка">
 
-        <h2>Venom Boy</h2>
-        <p class="author">Автор: Sweet Dreams</p>
+            <h2>Кто убил лирический реп?</h2>
+            <p class="author">Автор: Илья Коряков</p>
 
-        <p>
-            Это вторая статья. Добавь интересный текст, новости или даже выдуманную историю.
-            Например, про нового героя, который покоряет музыкальную сцену.
-        </p>
-    </article>
+            <p>
+                Что вообще можно считать лирическим репом? Я не знаю, но тогда кто знает?
+            </p>
+        </article>
+
+        <article class="slide">
+            <img class="article-image" src="images/article2.jpg" alt="Картинка">
+
+            <h2>Venom Boy</h2>
+            <p class="author">Автор: Sweet Dreams</p>
+
+            <p>
+                Это вторая статья. Добавь интересный текст или историю.
+            </p>
+        </article>
+
+    </div>
+
+    <button class="nav next" onclick="nextSlide()">❯</button>
+
+</div>
 
 </main>
 
 <footer>
-    <p>© 2026 Кукуруза.com — Все права защищены</p>
+    <p>© 2026 Кукуруза.com</p>
 </footer>
+
+<script>
+let current = 0;
+const slides = document.querySelectorAll(".slide");
+
+function showSlide(index) {
+    slides.forEach(slide => slide.classList.remove("active"));
+    slides[index].classList.add("active");
+}
+
+function nextSlide() {
+    current = (current + 1) % slides.length;
+    showSlide(current);
+}
+
+function prevSlide() {
+    current = (current - 1 + slides.length) % slides.length;
+    showSlide(current);
+}
+</script>
 
 </body>
 </html>
