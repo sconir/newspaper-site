@@ -5,7 +5,7 @@
     --text-color: #222;
     --article-bg: #fff;
     --h2-border: black;
-    --overlay-bg: rgba(255,255,255,0.6); /* фон для титульного блока */
+    --overlay-bg: rgba(255,255,255,0.6);
 }
 
 body.dark-mode {
@@ -13,7 +13,7 @@ body.dark-mode {
     --text-color: #eee;
     --article-bg: #1e1e1e;
     --h2-border: #eee;
-    --overlay-bg: rgba(0,0,0,0.6); /* тёмный фон для overlay */
+    --overlay-bg: rgba(0,0,0,0.6);
 }
 
 /* ============================= */
@@ -26,8 +26,7 @@ body {
     transition: background 0.5s, color 0.5s;
 }
 
-/* ============================= */
-/* КНОПКА СМЕНЫ ТЕМЫ */
+/* Кнопка темы */
 #theme-toggle {
     position: fixed;
     top: 20px;
@@ -37,8 +36,7 @@ body {
     cursor: pointer;
 }
 
-/* ============================= */
-/* ГЛОБАЛЬНЫЙ ФУТЕР */
+/* Глобальный футер */
 #global-footer {
     position: fixed;
     bottom: 20px;
@@ -48,8 +46,7 @@ body {
     z-index: 1000;
 }
 
-/* ============================= */
-/* СЛАЙДЕР */
+/* Слайдер */
 .slider {
     position: relative;
     overflow: hidden;
@@ -71,15 +68,16 @@ body {
     position: relative;
 }
 
-/* ============================= */
-/* ГЛАВНЫЙ ЭКРАН */
+/* Главный экран */
 .intro {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: url('images/intro-bg.jpg') center center/cover no-repeat;
+    background-size: cover;
+    background-position: center;
     min-height: 100vh;
+    transition: background 1s ease;
 }
 
 /* Overlay с зависимостью от темы */
@@ -90,7 +88,6 @@ body {
     transition: background 0.5s, color 0.5s;
 }
 
-/* Текст внутри overlay */
 .intro-overlay h1,
 .intro-overlay p {
     color: var(--text-color);
@@ -107,8 +104,7 @@ body {
     color: gray;
 }
 
-/* ============================= */
-/* СТАТЬИ */
+/* Статьи */
 article {
     max-width: 700px;
     margin: auto;
@@ -155,8 +151,7 @@ h2 {
     font-size: 14px;
 }
 
-/* ============================= */
-/* СТРЕЛКИ */
+/* Стрелки */
 .nav {
     position: fixed;
     top: 50%;
