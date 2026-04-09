@@ -1,106 +1,92 @@
 body {
-    font-family: "Georgia", serif;
     margin: 0;
-    background-color: #f4f1ea;
-    color: #111;
+    font-family: Georgia, serif;
+    background: #f4f1ea;
 }
 
-/* HEADER */
-header {
-    text-align: center;
-    border-bottom: 4px solid black;
-    padding: 20px 0;
-    margin-bottom: 30px;
-    background-color: #fff;
-}
-
-h1 {
-    font-size: 48px;
-    margin: 0;
-}
-
-.date {
-    font-size: 14px;
-    color: gray;
-}
-
-/* SLIDER */
+/* СЛАЙДЕР */
 .slider {
     position: relative;
-    max-width: 700px;
-    margin: auto;
+    overflow: hidden;
 }
 
-.slides {
-    position: relative;
-}
-
-/* ARTICLE */
+/* СЛАЙДЫ */
 .slide {
     display: none;
-    background: white;
-    padding: 20px;
-    border: 1px solid #ddd;
+    min-height: 100vh;
+    padding: 40px;
+    box-sizing: border-box;
 }
 
-/* показываем только активную */
 .slide.active {
     display: block;
 }
 
-/* IMAGE (скрыта по умолчанию) */
+/* ГЛАВНЫЙ ЭКРАН */
+.intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    background: white;
+}
+
+.intro h1 {
+    font-size: 60px;
+    margin-bottom: 10px;
+}
+
+.hint {
+    margin-top: 30px;
+    color: gray;
+}
+
+/* СТАТЬИ */
+article {
+    max-width: 700px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+}
+
+/* КАРТИНКА СВЕРХУ */
 .article-image {
     width: 100%;
-    height: 250px;
+    height: 300px;
     object-fit: cover;
     margin-bottom: 15px;
-    border-radius: 8px;
-
-    opacity: 0;
-    transition: opacity 0.3s ease;
 }
 
-/* появляется при наведении */
-.slide:hover .article-image {
-    opacity: 1;
-}
-
-/* TEXT */
+/* ТЕКСТ */
 h2 {
     border-bottom: 1px solid black;
 }
 
 .author {
-    font-size: 13px;
     color: gray;
+    font-size: 14px;
 }
 
-/* BUTTONS */
+/* СТРЕЛКИ */
 .nav {
-    position: absolute;
+    position: fixed;
     top: 50%;
     transform: translateY(-50%);
-    background: black;
+    font-size: 60px;
+    background: rgba(0,0,0,0.5);
     color: white;
     border: none;
-    font-size: 24px;
-    padding: 10px 15px;
+    padding: 20px 25px;
     cursor: pointer;
+    z-index: 1000;
 }
 
 .prev {
-    left: -60px;
+    left: 10px;
 }
 
 .next {
-    right: -60px;
-}
-
-/* FOOTER */
-footer {
-    text-align: center;
-    margin-top: 40px;
-    padding: 20px;
-    border-top: 2px solid black;
-    background: #fff;
+    right: 10px;
 }
