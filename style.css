@@ -1,17 +1,27 @@
+/* Переменные темы */
+:root {
+    --bg-color: #f4f1ea;
+    --text-color: #222;
+    --article-bg: #fff;
+    --h2-border: black;
+}
+
+body.dark-mode {
+    --bg-color: #121212;
+    --text-color: #eee;
+    --article-bg: #1e1e1e;
+    --h2-border: #eee;
+}
+
 body {
     margin: 0;
     font-family: Georgia, serif;
-    background: #f4f1ea;
-    color: #222;
-    transition: background 0.3s, color 0.3s;
+    background: var(--bg-color);
+    color: var(--text-color);
+    transition: background 0.5s, color 0.5s;
 }
 
-/* ТЁМНАЯ ТЕМА */
-body.dark-mode {
-    background: #121212;
-    color: #eee;
-}
-
+/* Кнопка темы */
 #theme-toggle {
     position: fixed;
     top: 20px;
@@ -21,37 +31,50 @@ body.dark-mode {
     cursor: pointer;
 }
 
-/* СЛАЙДЕР */
+/* Глобальный футер */
+#global-footer {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 12px;
+    color: gray;
+    z-index: 1000;
+}
+
+/* Слайдер */
 .slider {
     position: relative;
     overflow: hidden;
 }
 
-/* СЛАЙДЫ */
+/* Слайды */
 .slide {
-    display: none;
-    min-height: 100vh;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    position: absolute;
+    width: 100%;
+    height: 100%;
     padding: 40px;
     box-sizing: border-box;
 }
 
 .slide.active {
-    display: block;
+    opacity: 1;
+    position: relative;
 }
 
-/* ГЛАВНЫЙ ЭКРАН */
+/* Главный экран */
 .intro {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     background: url('images/intro-bg.jpg') center center/cover no-repeat;
-    position: relative;
     min-height: 100vh;
 }
 
 .intro-overlay {
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(255,255,255,0.6);
     padding: 20px 40px;
     border-radius: 10px;
 }
@@ -66,20 +89,17 @@ body.dark-mode {
     color: gray;
 }
 
-/* СТАТЬИ */
+/* Статьи */
 article {
     max-width: 700px;
     margin: auto;
-    background: white;
+    background: var(--article-bg);
     padding: 20px;
     position: relative;
+    transition: background 0.5s;
 }
 
-body.dark-mode article {
-    background: #1e1e1e;
-}
-
-/* НАЗВАНИЕ САЙТА И ДАТА */
+/* Название сайта и дата */
 .site-header {
     position: fixed;
     top: 20px;
@@ -97,7 +117,7 @@ body.dark-mode article {
     color: gray;
 }
 
-/* КАРТИНКА СТАТЬИ */
+/* Картинки статей */
 .article-image {
     width: 100%;
     height: 300px;
@@ -105,13 +125,10 @@ body.dark-mode article {
     margin-bottom: 15px;
 }
 
-/* ТЕКСТ */
+/* Текст */
 h2 {
-    border-bottom: 1px solid black;
-}
-
-body.dark-mode h2 {
-    border-color: #eee;
+    border-bottom: 1px solid var(--h2-border);
+    transition: border-color 0.5s;
 }
 
 .author {
@@ -119,16 +136,7 @@ body.dark-mode h2 {
     font-size: 14px;
 }
 
-/* ФУТЕР */
-footer {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    font-size: 12px;
-    color: gray;
-}
-
-/* СТРЕЛКИ */
+/* Стрелки */
 .nav {
     position: fixed;
     top: 50%;
