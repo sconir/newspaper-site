@@ -7,6 +7,9 @@
 </head>
 <body>
 
+<!-- ПЕРЕКЛЮЧАТЕЛЬ ТЕМНОГО/СВЕТЛОГО РЕЖИМА -->
+<button id="theme-toggle">🌙</button>
+
 <div class="slider">
 
     <!-- СТРЕЛКИ -->
@@ -16,7 +19,7 @@
     <div class="slides">
 
         <!-- ГЛАВНЫЙ ЭКРАН -->
-        <section class="slide active intro">
+        <section class="slide active intro" id="intro-slide">
             <div class="intro-overlay">
                 <h1>Кукуруза.com</h1>
                 <p>Современная интернет-газета о музыке, культуре и мнениях</p>
@@ -26,7 +29,10 @@
 
         <!-- СТАТЬИ 1-8 -->
         <article class="slide">
-            <div class="site-title">Кукуруза.com</div>
+            <div class="site-header">
+                <div class="site-title">Кукуруза.com</div>
+                <div class="date" id="date-1"></div>
+            </div>
             <h2>Кто убил лирический реп?</h2>
             <p class="author">Автор: Илья Коряков</p>
             <p>Что вообще можно считать лирическим репом? Я не знаю, но тогда кто знает?</p>
@@ -35,7 +41,10 @@
         </article>
 
         <article class="slide">
-            <div class="site-title">Кукуруза.com</div>
+            <div class="site-header">
+                <div class="site-title">Кукуруза.com</div>
+                <div class="date" id="date-2"></div>
+            </div>
             <h2>Venom Boy</h2>
             <p class="author">Автор: Sweet Dreams</p>
             <p>Это вторая статья. Добавь интересный текст или историю.</p>
@@ -43,8 +52,12 @@
             <footer>© Кукуруза.com, все права защищены</footer>
         </article>
 
+        <!-- Заготовки статей 3-8 -->
         <article class="slide">
-            <div class="site-title">Кукуруза.com</div>
+            <div class="site-header">
+                <div class="site-title">Кукуруза.com</div>
+                <div class="date" id="date-3"></div>
+            </div>
             <h2>Статья 3</h2>
             <p class="author">Автор: Автор 3</p>
             <p>Текст третьей статьи.</p>
@@ -53,7 +66,10 @@
         </article>
 
         <article class="slide">
-            <div class="site-title">Кукуруза.com</div>
+            <div class="site-header">
+                <div class="site-title">Кукуруза.com</div>
+                <div class="date" id="date-4"></div>
+            </div>
             <h2>Статья 4</h2>
             <p class="author">Автор: Автор 4</p>
             <p>Текст четвертой статьи.</p>
@@ -62,7 +78,10 @@
         </article>
 
         <article class="slide">
-            <div class="site-title">Кукуруза.com</div>
+            <div class="site-header">
+                <div class="site-title">Кукуруза.com</div>
+                <div class="date" id="date-5"></div>
+            </div>
             <h2>Статья 5</h2>
             <p class="author">Автор: Автор 5</p>
             <p>Текст пятой статьи.</p>
@@ -71,7 +90,10 @@
         </article>
 
         <article class="slide">
-            <div class="site-title">Кукуруза.com</div>
+            <div class="site-header">
+                <div class="site-title">Кукуруза.com</div>
+                <div class="date" id="date-6"></div>
+            </div>
             <h2>Статья 6</h2>
             <p class="author">Автор: Автор 6</p>
             <p>Текст шестой статьи.</p>
@@ -80,7 +102,10 @@
         </article>
 
         <article class="slide">
-            <div class="site-title">Кукуруза.com</div>
+            <div class="site-header">
+                <div class="site-title">Кукуруза.com</div>
+                <div class="date" id="date-7"></div>
+            </div>
             <h2>Статья 7</h2>
             <p class="author">Автор: Автор 7</p>
             <p>Текст седьмой статьи.</p>
@@ -89,7 +114,10 @@
         </article>
 
         <article class="slide">
-            <div class="site-title">Кукуруза.com</div>
+            <div class="site-header">
+                <div class="site-title">Кукуруза.com</div>
+                <div class="date" id="date-8"></div>
+            </div>
             <h2>Статья 8</h2>
             <p class="author">Автор: Автор 8</p>
             <p>Текст восьмой статьи.</p>
@@ -118,6 +146,17 @@ function prevSlide() {
     current = (current - 1 + slides.length) % slides.length;
     showSlide(current);
 }
+
+// Добавление текущей даты
+for(let i=1;i<=8;i++){
+    document.getElementById(`date-${i}`).innerText = new Date().toLocaleDateString('ru-RU');
+}
+
+// Переключение темы
+const themeToggle = document.getElementById('theme-toggle');
+themeToggle.addEventListener('click', ()=>{
+    document.body.classList.toggle('dark-mode');
+});
 </script>
 
 </body>
