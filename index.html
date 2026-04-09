@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Кукуруза.news</title>
+    <title>Кукуруза.com</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,7 +15,7 @@
 
 <div class="slider">
 
-    <!-- СТРЕЛКИ -->
+    <!-- Стрелки -->
     <button class="nav prev" onclick="prevSlide()">❮</button>
     <button class="nav next" onclick="nextSlide()">❯</button>
 
@@ -53,6 +53,7 @@
             <img class="article-image" src="images/article2.jpg">
         </article>
 
+        <!-- Заготовки статей 3-8 -->
         <article class="slide">
             <div class="site-header">
                 <div class="site-title">Кукуруза.com</div>
@@ -126,6 +127,7 @@
 let current = 0;
 const slides = document.querySelectorAll(".slide");
 
+// Смена слайдов
 function showSlide(index) {
     slides.forEach(s => s.classList.remove("active"));
     slides[index].classList.add("active");
@@ -151,6 +153,27 @@ const themeToggle = document.getElementById('theme-toggle');
 themeToggle.addEventListener('click', ()=>{
     document.body.classList.toggle('dark-mode');
 });
+
+// ===============================
+// Смена фоновых картинок на главном слайде
+const introSlide = document.getElementById('intro-slide');
+const bgImages = [
+    'images/intro1.jpg',
+    'images/intro2.jpg',
+    'images/intro3.jpg',
+    'images/intro4.jpg'
+];
+let bgIndex = 0;
+
+function changeBackground() {
+    // добавляем timestamp для обхода кэша
+    introSlide.style.backgroundImage = `url('${bgImages[bgIndex]}?t=${Date.now()}')`;
+    bgIndex = (bgIndex + 1) % bgImages.length;
+}
+
+// Сменяем каждые 5 секунд
+setInterval(changeBackground, 5000);
+changeBackground(); // сразу показать первую
 </script>
 
 </body>
