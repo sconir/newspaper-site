@@ -2,6 +2,23 @@ body {
     margin: 0;
     font-family: Georgia, serif;
     background: #f4f1ea;
+    color: #222;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* ТЁМНАЯ ТЕМА */
+body.dark-mode {
+    background: #121212;
+    color: #eee;
+}
+
+#theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+    padding: 10px;
+    cursor: pointer;
 }
 
 /* СЛАЙДЕР */
@@ -49,16 +66,6 @@ body {
     color: gray;
 }
 
-/* НАЗВАНИЕ САЙТА ДЛЯ СТАТЕЙ */
-.site-title {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    font-size: 16px;
-    font-weight: bold;
-    z-index: 1000;
-}
-
 /* СТАТЬИ */
 article {
     max-width: 700px;
@@ -68,7 +75,29 @@ article {
     position: relative;
 }
 
-/* КАРТИНКА СВЕРХУ */
+body.dark-mode article {
+    background: #1e1e1e;
+}
+
+/* НАЗВАНИЕ САЙТА И ДАТА */
+.site-header {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+}
+
+.site-title {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.date {
+    font-size: 14px;
+    color: gray;
+}
+
+/* КАРТИНКА СТАТЬИ */
 .article-image {
     width: 100%;
     height: 300px;
@@ -81,6 +110,10 @@ h2 {
     border-bottom: 1px solid black;
 }
 
+body.dark-mode h2 {
+    border-color: #eee;
+}
+
 .author {
     color: gray;
     font-size: 14px;
@@ -88,8 +121,9 @@ h2 {
 
 /* ФУТЕР */
 footer {
-    text-align: center;
-    margin-top: 20px;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
     font-size: 12px;
     color: gray;
 }
@@ -100,7 +134,7 @@ footer {
     top: 50%;
     transform: translateY(-50%);
     font-size: 60px;
-    background: rgba(0,0,0,0.3); /* 70% прозрачность */
+    background: rgba(0,0,0,0.3);
     color: white;
     border: none;
     padding: 20px 25px;
