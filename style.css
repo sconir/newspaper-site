@@ -100,12 +100,17 @@ article {
     position: relative;
 }
 
-/* 🔥 КАРТИНКИ БЕЗ ИСКАЖЕНИЯ */
+/* ================= ARTICLE IMAGE FIX ================= */
 .article-image {
-    max-width: 100%;
-    height: auto;
     display: block;
-    margin-bottom: 15px;
+    width: 100%;
+    max-width: 700px;   /* как у текста */
+    margin: 20px auto;  /* центрирование */
+    
+    height: auto;       /* сохраняет пропорции */
+    object-fit: contain;
+
+    border-radius: 10px;
 }
 
 /* Заголовки */
@@ -162,10 +167,6 @@ h2 {
     }
 }
 
-/* ================= SCROLL FIX ================= */
-body {
-    overflow-x: hidden;
-}
 /* ================= BUTTON FIX ================= */
 #theme-toggle, #lang-toggle {
     transition: 0.3s;
@@ -185,4 +186,10 @@ body.dark-mode #theme-toggle,
 body.dark-mode #lang-toggle {
     background: #222;
     color: white;
+}
+
+/* ================= LOCK SCROLL ON INTRO ================= */
+body.intro-lock {
+    overflow: hidden;
+    height: 100vh;
 }
