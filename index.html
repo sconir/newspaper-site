@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>Кукуруза.com</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Кукуруза.com</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <button id="theme-toggle">🌙</button>
@@ -190,37 +191,36 @@
 </div>
 
 <script>
-// ================= SLIDES
+// SLIDES
 let current = 0;
 const slides = document.querySelectorAll(".slide");
 
-function showSlide(index) {
+function showSlide(index){
     slides.forEach(s => s.classList.remove("active"));
     slides[index].classList.add("active");
 }
 
-// ================= NAV
-function nextSlide() {
+function nextSlide(){
     current = (current + 1) % slides.length;
     showSlide(current);
 }
 
-function prevSlide() {
+function prevSlide(){
     current = (current - 1 + slides.length) % slides.length;
     showSlide(current);
 }
 
-// ================= DATES
+// DATES
 for(let i=1;i<=8;i++){
     const el = document.getElementById(`date-${i}`);
     if(el) el.innerText = new Date().toLocaleDateString('ru-RU');
 }
 
-// ================= LANGUAGE
+// LANGUAGE
 let lang = "ru";
 
-function updateLang() {
-    document.querySelectorAll("[data-ru]").forEach(el => {
+function updateLang(){
+    document.querySelectorAll("[data-ru]").forEach(el=>{
         el.innerText = el.getAttribute(`data-${lang}`);
     });
 
@@ -228,27 +228,19 @@ function updateLang() {
         lang === "ru" ? "EN" : "RU";
 }
 
-document.getElementById('lang-toggle').onclick = () => {
+document.getElementById("lang-toggle").onclick = () => {
     lang = lang === "ru" ? "en" : "ru";
     updateLang();
 };
 
-// ================= THEME + BUTTON COLORS
+// THEME
 let dark = false;
 
-function updateTheme() {
+function updateTheme(){
     document.body.classList.toggle("dark-mode", dark);
 
-    const themeBtn = document.getElementById("theme-toggle");
-    const langBtn = document.getElementById("lang-toggle");
-
-    themeBtn.innerText = dark ? "☀️" : "🌙";
-
-    themeBtn.style.background = dark ? "#222" : "#fff";
-    langBtn.style.background = dark ? "#222" : "#fff";
-
-    themeBtn.style.color = dark ? "#fff" : "#000";
-    langBtn.style.color = dark ? "#fff" : "#000";
+    document.getElementById("theme-toggle").innerText =
+        dark ? "☀️" : "🌙";
 }
 
 document.getElementById("theme-toggle").onclick = () => {
@@ -256,7 +248,7 @@ document.getElementById("theme-toggle").onclick = () => {
     updateTheme();
 };
 
-// ================= BACKGROUND (ВОССТАНОВЛЕНО 10 КАРТИНОК)
+// BACKGROUND ROTATION
 const introSlide = document.getElementById('intro-slide');
 
 const bgImages = [
@@ -274,7 +266,7 @@ const bgImages = [
 
 let bgIndex = 0;
 
-function changeBackground() {
+function changeBackground(){
     introSlide.style.backgroundImage =
         `url('${bgImages[bgIndex]}?t=${Date.now()}')`;
 
