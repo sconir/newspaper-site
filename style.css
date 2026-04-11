@@ -1,24 +1,31 @@
+/* ============================= */
+/* ПЕРЕМЕННЫЕ ТЕМЫ */
 :root {
     --bg-color: #f4f1ea;
     --text-color: #222;
     --article-bg: #fff;
+    --h2-border: black;
+    --overlay-bg: rgba(255,255,255,0.6);
 }
 
 body.dark-mode {
     --bg-color: #121212;
     --text-color: #eee;
     --article-bg: #1e1e1e;
+    --h2-border: #eee;
+    --overlay-bg: rgba(0,0,0,0.6);
 }
 
+/* ============================= */
 body {
     margin: 0;
     font-family: Georgia, serif;
     background: var(--bg-color);
     color: var(--text-color);
-    transition: 0.5s;
+    transition: background 0.5s, color 0.5s;
 }
 
-/* КНОПКИ */
+/* Кнопки */
 #theme-toggle, #lang-toggle {
     position: fixed;
     top: 20px;
@@ -30,7 +37,7 @@ body {
 #theme-toggle { right: 20px; }
 #lang-toggle { right: 80px; }
 
-/* ФУТЕР */
+/* Футер */
 #global-footer {
     position: fixed;
     bottom: 20px;
@@ -40,24 +47,23 @@ body {
     z-index: 2000;
 }
 
-/* СЛАЙДЕР */
-.slider {
-    position: relative;
-}
-
-/* СЛАЙДЫ (ВАЖНО: больше не absolute) */
+/* Слайды */
 .slide {
-    display: none;
-    min-height: 100vh;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    position: absolute;
+    width: 100%;
+    height: 100%;
     padding: 40px;
     box-sizing: border-box;
 }
 
 .slide.active {
-    display: block;
+    opacity: 1;
+    position: relative;
 }
 
-/* ГЛАВНЫЙ */
+/* Главный экран */
 .intro {
     display: flex;
     justify-content: center;
@@ -65,9 +71,10 @@ body {
     text-align: center;
     background-size: cover;
     background-position: center;
+    min-height: 100vh;
 }
 
-/* GLASS UI */
+/* 🔥 GLASS UI */
 .intro-overlay {
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(15px);
@@ -84,22 +91,34 @@ body.dark-mode .intro-overlay {
     background: rgba(0, 0, 0, 0.3);
 }
 
-/* СТАТЬИ */
+/* Статьи */
 article {
     max-width: 700px;
     margin: auto;
     background: var(--article-bg);
     padding: 20px;
+    position: relative;
 }
 
-/* КАРТИНКИ */
+/* 🔥 КАРТИНКИ БЕЗ ИСКАЖЕНИЯ */
 .article-image {
     max-width: 100%;
     height: auto;
     display: block;
+    margin-bottom: 15px;
 }
 
-/* СТРЕЛКИ (ФИКС) */
+/* Заголовки */
+h2 {
+    border-bottom: 1px solid var(--h2-border);
+}
+
+.author {
+    color: gray;
+    font-size: 14px;
+}
+
+/* 🔥 СТРЕЛКИ (ИСПРАВЛЕНО) */
 .nav {
     position: fixed;
     top: 50%;
@@ -108,9 +127,9 @@ article {
     background: rgba(0,0,0,0.3);
     color: white;
     border: none;
-    padding: 20px;
+    padding: 20px 25px;
     cursor: pointer;
-    z-index: 3000; /* 🔥 теперь ВСЕГДА поверх */
+    z-index: 3000; /* главное исправление */
 }
 
 .prev { left: 10px; }
