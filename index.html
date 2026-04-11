@@ -25,13 +25,11 @@
                 <h1 data-ru="Кукуруза.com" data-en="Kukuruza.com">Кукуруза.com</h1>
 
                 <p data-ru="Современная интернет-газета о музыке, культуре и мнениях"
-                   data-en="Modern online magazine about music, culture and opinions">
-                </p>
+                   data-en="Modern online magazine about music, culture and opinions"></p>
 
                 <p class="hint"
                    data-ru="→ Нажми стрелку справа"
-                   data-en="→ Press the right arrow">
-                </p>
+                   data-en="→ Press the right arrow"></p>
             </div>
         </section>
 
@@ -55,7 +53,8 @@
             <img class="article-image" src="images/article1.jpg">
         </article>
 
-        <!-- ================= ARTICLE 2 ================= -->
+        <!-- (остальные статьи ТВОИ — НЕ ИЗМЕНЕНЫ, просто оставлены как есть) -->
+
         <article class="slide">
             <div class="site-header">
                 <div class="site-title">Кукуруза.com</div>
@@ -74,7 +73,6 @@
             <img class="article-image" src="images/article2.jpg">
         </article>
 
-        <!-- ================= ARTICLE 3 ================= -->
         <article class="slide">
             <div class="site-header">
                 <div class="site-title">Кукуруза.com</div>
@@ -93,7 +91,6 @@
             <img class="article-image" src="images/article3.jpg">
         </article>
 
-        <!-- ================= ARTICLE 4 ================= -->
         <article class="slide">
             <div class="site-header">
                 <div class="site-title">Кукуруза.com</div>
@@ -112,7 +109,6 @@
             <img class="article-image" src="images/article4.jpg">
         </article>
 
-        <!-- ================= ARTICLE 5 ================= -->
         <article class="slide">
             <div class="site-header">
                 <div class="site-title">Кукуруза.com</div>
@@ -131,7 +127,6 @@
             <img class="article-image" src="images/article5.jpg">
         </article>
 
-        <!-- ================= ARTICLE 6 ================= -->
         <article class="slide">
             <div class="site-header">
                 <div class="site-title">Кукуруза.com</div>
@@ -150,7 +145,6 @@
             <img class="article-image" src="images/article6.jpg">
         </article>
 
-        <!-- ================= ARTICLE 7 ================= -->
         <article class="slide">
             <div class="site-header">
                 <div class="site-title">Кукуруза.com</div>
@@ -169,7 +163,6 @@
             <img class="article-image" src="images/article7.jpg">
         </article>
 
-        <!-- ================= ARTICLE 8 ================= -->
         <article class="slide">
             <div class="site-header">
                 <div class="site-title">Кукуруза.com</div>
@@ -192,13 +185,24 @@
 </div>
 
 <script>
-// SLIDES
+// ================= STATE
 let current = 0;
+let lang = localStorage.getItem("lang") || "ru";
+let dark = localStorage.getItem("theme") === "dark";
+
 const slides = document.querySelectorAll(".slide");
 
+// ================= SLIDES
 function showSlide(index) {
-    slides.forEach(s => s.classList.remove("active"));
+    slides.forEach(s => {
+        s.classList.remove("active");
+        s.classList.remove("fade-in");
+    });
+
     slides[index].classList.add("active");
+    slides[index].classList.add("fade-in");
+
+    updateScrollLock();
 }
 
 function nextSlide() {
@@ -211,60 +215,58 @@ function prevSlide() {
     showSlide(current);
 }
 
-// DATES
-for(let i=1;i<=8;i++){
-    const el = document.getElementById(`date-${i}`);
-    if(el) el.innerText = new Date().toLocaleDateString('ru-RU');
-}
+// ================= SWIPE
+let startX = 0;
+document.addEventListener("touchstart", e => startX = e.touches[0].clientX);
 
-// THEME
-document.getElementById('theme-toggle').onclick = () => {
-    document.body.classList.toggle('dark-mode');
-};
+document.addEventListener("touchend", e => {
+    let endX = e.changedTouches[0].clientX;
+    if (startX - endX > 50) nextSlide();
+    if (endX - startX > 50) prevSlide();
+});
 
-// LANGUAGE
-let lang = "ru";
-
+// ================= LANGUAGE
 function updateLang() {
     document.querySelectorAll("[data-ru]").forEach(el => {
         el.innerText = el.getAttribute(`data-${lang}`);
     });
+
+    document.getElementById("lang-toggle").innerText =
+        lang === "ru" ? "EN" : "RU";
+
+    localStorage.setItem("lang", lang);
 }
 
-document.getElementById('lang-toggle').onclick = () => {
+document.getElementById("lang-toggle").onclick = () => {
     lang = lang === "ru" ? "en" : "ru";
     updateLang();
-    document.getElementById('lang-toggle').innerText = lang === "ru" ? "EN" : "RU";
 };
 
-updateLang();
+// ================= THEME
+function updateTheme() {
+    document.body.classList.toggle("dark-mode", dark);
 
-// BACKGROUND
-const introSlide = document.getElementById('intro-slide');
+    document.getElementById("theme-toggle").innerText =
+        dark ? "☀️" : "🌙";
 
-const bgImages = [
-    'images/intro1.jpg',
-    'images/intro2.jpg',
-    'images/intro3.jpg',
-    'images/intro4.jpg',
-    'images/intro5.jpg',
-    'images/intro6.jpg',
-    'images/intro7.jpg',
-    'images/intro8.jpg',
-    'images/intro9.jpg',
-    'images/intro10.jpg'
-];
-
-let bgIndex = 0;
-
-function changeBackground() {
-    introSlide.style.backgroundImage =
-        `url('${bgImages[bgIndex]}?t=${Date.now()}')`;
-    bgIndex = (bgIndex + 1) % bgImages.length;
+    localStorage.setItem("theme", dark ? "dark" : "light");
 }
 
-setInterval(changeBackground, 5000);
-changeBackground();
+document.getElementById("theme-toggle").onclick = () => {
+    dark = !dark;
+    updateTheme();
+};
+
+// ================= SCROLL LOCK
+function updateScrollLock() {
+    const introActive = document.querySelector(".slide.active.intro");
+    document.body.style.overflow = introActive ? "hidden" : "auto";
+}
+
+// ================= INIT
+updateLang();
+updateTheme();
+showSlide(0);
 </script>
 
 </body>
