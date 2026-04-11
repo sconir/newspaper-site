@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Кукуруза.com</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Кнопка смены темы -->
+<button id="theme-toggle">🌙</button>
+
+<!-- Глобальный футер -->
+<footer id="global-footer">© Кукуруза.com, все права защищены</footer>
+
+<div class="slider">
+
+    <!-- Стрелки -->
+    <button class="nav prev" onclick="prevSlide()">❮</button>
+    <button class="nav next" onclick="nextSlide()">❯</button>
+
+    <div class="slides">
+
+        <!-- Главный экран -->
+        <section class="slide active intro" id="intro-slide">
+            <div class="intro-overlay">
+                <h1>Кукуруза.com</h1>
+                <p>Современная интернет-газета о музыке, культуре и мнениях</p>
+                <p class="hint">→ Нажми стрелку справа</p>
+            </div>
+        </section>
+
+        <!-- Статьи 1-8 -->
+        <article class="slide">
+            <div class="site-header">
+                <div class="site-title">Кукуруза.com</div>
+                <div class="date" id="date-1"></div>
+            </div>
+            <h2>How to charge the battery and look your best!
+
+Hello! Do you think a healthy lifestyle is only about healthy food and running in the morning? In fact, this is your "cheat code" for a cool mood, clean skin and crazy energy.
+The first secret is simple - it's a dream. Yes, no matter how trite it may sound, but if you sleep for 8-9 hours, you will stop being "stupid" in class and forget about bruises under your eyes.Food is your energy, and throwing only junk food into yourself is the same as slowly killing your body. Try to add more fruit to your diet and drink plain water, and you'll be surprised how your brain will start thinking faster.
+Movement is not necessarily just physical education at school; cycling, dancing or walking with a dog also work great. Healthy lifestyle is also about the ability to "turn off" from social networks in time, as many teenagers like to sit in tik tok until late.
+
+Don't try to change everything at once, start with one useful habit a week.
+Small steps will make you feel much more confident. Remember that your body is a "house" in which you will live all your life. So why not make this house as comfortable as possible right now? Your body will say "thank you" for your excellent well-being and a cool reflection in the mirror!</h2>
+            <p class="author">Автор: Илья Коряков</p>
+            <p>Что вообще можно считать лирическим репом? Я не знаю, но тогда кто знает?</p>
+            <img class="article-image" src="images/article1.jpg">
+        </article>
+
+        <article class="slide">
+            <div class="site-header">
+                <div class="site-title">Кукуруза.com</div>
+                <div class="date" id="date-2"></div>
+            </div>
+            <h2>Venom Boy</h2>
+            <p class="author">Автор: Sweet Dreams</p>
+            <p>Это вторая статья. Добавь интересный текст или историю.</p>
+            <img class="article-image" src="images/article2.jpg">
+        </article>
+
+        <!-- Заготовки статей 3-8 -->
+        <article class="slide">
+            <div class="site-header">
+                <div class="site-title">Кукуруза.com</div>
+                <div class="date" id="date-3"></div>
+            </div>
+            <h2>Статья 3</h2>
+            <p class="author">Автор: Автор 3</p>
+            <p>Текст третьей статьи.</p>
+            <img class="article-image" src="images/article3.jpg">
+        </article>
+
+        <article class="slide">
+            <div class="site-header">
+                <div class="site-title">Кукуруза.com</div>
+                <div class="date" id="date-4"></div>
+            </div>
+            <h2>Статья 4</h2>
+            <p class="author">Автор: Автор 4</p>
+            <p>Текст четвертой статьи.</p>
+            <img class="article-image" src="images/article4.jpg">
+        </article>
+
+        <article class="slide">
+            <div class="site-header">
+                <div class="site-title">Кукуруза.com</div>
+                <div class="date" id="date-5"></div>
+            </div>
+            <h2>Статья 5</h2>
+            <p class="author">Автор: Автор 5</p>
+            <p>Текст пятой статьи.</p>
+            <img class="article-image" src="images/article5.jpg">
+        </article>
+
+        <article class="slide">
+            <div class="site-header">
+                <div class="site-title">Кукуруза.com</div>
+                <div class="date" id="date-6"></div>
+            </div>
+            <h2>Статья 6</h2>
+            <p class="author">Автор: Автор 6</p>
+            <p>Текст шестой статьи.</p>
+            <img class="article-image" src="images/article6.jpg">
+        </article>
+
+        <article class="slide">
+            <div class="site-header">
+                <div class="site-title">Кукуруза.com</div>
+                <div class="date" id="date-7"></div>
+            </div>
+            <h2>Статья 7</h2>
+            <p class="author">Автор: Автор 7</p>
+            <p>Текст седьмой статьи.</p>
+            <img class="article-image" src="images/article7.jpg">
+        </article>
+
+        <article class="slide">
+            <div class="site-header">
+                <div class="site-title">Кукуруза.com</div>
+                <div class="date" id="date-8"></div>
+            </div>
+            <h2>Статья 8</h2>
+            <p class="author">Автор: Автор 8</p>
+            <p>Текст восьмой статьи.</p>
+            <img class="article-image" src="images/article8.jpg">
+        </article>
+
+    </div>
+</div>
+
+<script>
+let current = 0;
+const slides = document.querySelectorAll(".slide");
+
+// Смена слайдов
+function showSlide(index) {
+    slides.forEach(s => s.classList.remove("active"));
+    slides[index].classList.add("active");
+}
+
+function nextSlide() {
+    current = (current + 1) % slides.length;
+    showSlide(current);
+}
+
+function prevSlide() {
+    current = (current - 1 + slides.length) % slides.length;
+    showSlide(current);
+}
+
+// Добавление текущей даты
+for(let i=1;i<=8;i++){
+    document.getElementById(`date-${i}`).innerText = new Date().toLocaleDateString('ru-RU');
+}
+
+// Переключение темы
+const themeToggle = document.getElementById('theme-toggle');
+themeToggle.addEventListener('click', ()=>{
+    document.body.classList.toggle('dark-mode');
+});
+
+// ===============================
+// Смена фоновых картинок на главном слайде
+const introSlide = document.getElementById('intro-slide');
+const bgImages = [
+    'images/intro1.jpg',
+    'images/intro2.jpg',
+    'images/intro3.jpg',
+    'images/intro4.jpg',
+    'images/intro5.jpg',
+    'images/intro6.jpg',
+    'images/intro7.jpg',
+    'images/intro8.jpg',
+    'images/intro9.jpg',
+    'images/intro10.jpg'
+];
+let bgIndex = 0;
+
+function changeBackground() {
+    // добавляем timestamp для обхода кэша
+    introSlide.style.backgroundImage = `url('${bgImages[bgIndex]}?t=${Date.now()}')`;
+    bgIndex = (bgIndex + 1) % bgImages.length;
+}
+
+// Сменяем каждые 5 секунд
+setInterval(changeBackground, 5000);
+changeBackground(); // сразу показать первую
+</script>
+
+</body>
+</html>
