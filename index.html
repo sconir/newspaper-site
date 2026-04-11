@@ -14,27 +14,36 @@
 
 <div class="slider">
 
-<button class="nav prev" onclick="prevSlide()">❮</button>
-<button class="nav next" onclick="nextSlide()">❯</button>
+    <!-- СТРЕЛКИ -->
+    <button class="nav prev" onclick="prevSlide()">❮</button>
+    <button class="nav next" onclick="nextSlide()">❯</button>
 
-<div class="slides">
+    <div class="slides">
 
-<section class="slide active intro" id="intro-slide">
-    <div class="intro-overlay">
-        <h1 data-ru="Кукуруза.com" data-en="Kukuruza.com">Кукуруза.com</h1>
+        <!-- ГЛАВНЫЙ -->
+        <section class="slide active intro" id="intro-slide">
+            <div class="intro-overlay">
+                <h1 data-ru="Кукуруза.com" data-en="Kukuruza.com"></h1>
 
-        <p data-ru="Современная интернет-газета о музыке, культуре и мнениях"
-           data-en="Modern online magazine about music, culture and opinions">
-        </p>
+                <p data-ru="Современная интернет-газета о музыке, культуре и мнениях"
+                   data-en="Modern online magazine about music, culture and opinions">
+                </p>
 
-        <p class="hint"
-           data-ru="→ Нажми стрелку справа"
-           data-en="→ Press the right arrow">
-        </p>
+                <p class="hint"
+                   data-ru="→ Нажми стрелку справа"
+                   data-en="→ Press the right arrow">
+                </p>
+            </div>
+        </section>
+
+        <!-- ПРИМЕР СТАТЬИ -->
+        <article class="slide">
+            <h2 data-ru="Пример статьи" data-en="Example article"></h2>
+            <p data-ru="Текст статьи..." data-en="Article text..."></p>
+            <img class="article-image" src="images/article1.jpg">
+        </article>
+
     </div>
-</section>
-
-</div>
 </div>
 
 <script>
