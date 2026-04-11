@@ -198,6 +198,8 @@ const slides = document.querySelectorAll(".slide");
 function showSlide(index){
     slides.forEach(s => s.classList.remove("active"));
     slides[index].classList.add("active");
+
+    updateScrollLock(); // 👈 добавили сюда
 }
 
 function nextSlide(){
@@ -208,6 +210,11 @@ function nextSlide(){
 function prevSlide(){
     current = (current - 1 + slides.length) % slides.length;
     showSlide(current);
+}
+  
+function updateScrollLock(){
+    const isIntro = slides[current].classList.contains("intro");
+    document.body.classList.toggle("intro-lock", isIntro);
 }
 
 // DATES
