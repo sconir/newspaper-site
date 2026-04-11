@@ -191,39 +191,50 @@
 </div>
 
 <script>
-// SLIDES
+
+// ================= SLIDES =================
 let current = 0;
 const slides = document.querySelectorAll(".slide");
 
 function showSlide(index){
     slides.forEach(s => s.classList.remove("active"));
-    slides[index].classList.add("active");
 
-    updateScrollLock(); // 👈 добавили сюда
+    // защита от выхода за границы
+    if(index < 0) index = slides.length - 1;
+    if(index >= slides.length) index = 0;
+
+    current = index;
+    slides[current].classList.add("active");
+
+    updateScrollLock();
 }
 
 function nextSlide(){
-    current = (current + 1) % slides.length;
-    showSlide(current);
+    showSlide(current + 1);
 }
 
 function prevSlide(){
-    current = (current - 1 + slides.length) % slides.length;
-    showSlide(current);
-}
-  
-function updateScrollLock(){
-    const isIntro = slides[current].classList.contains("intro");
-    document.body.classList.toggle("intro-lock", isIntro);
+    showSlide(current - 1);
 }
 
-// DATES
+// ================= SCROLL LOCK (ИСПРАВЛЕНО) =================
+function updateScrollLock(){
+    const isIntro = slides[current].classList.contains("intro");
+
+    if(isIntro){
+        document.body.style.overflow = "hidden";
+    } else {
+        document.body.style.overflow = "auto";
+    }
+}
+
+// ================= DATES =================
 for(let i=1;i<=8;i++){
     const el = document.getElementById(`date-${i}`);
     if(el) el.innerText = new Date().toLocaleDateString('ru-RU');
 }
 
-// LANGUAGE
+// ================= LANGUAGE =================
 let lang = "ru";
 
 function updateLang(){
@@ -240,7 +251,7 @@ document.getElementById("lang-toggle").onclick = () => {
     updateLang();
 };
 
-// THEME
+// ================= THEME =================
 let dark = false;
 
 function updateTheme(){
@@ -255,7 +266,7 @@ document.getElementById("theme-toggle").onclick = () => {
     updateTheme();
 };
 
-// BACKGROUND ROTATION
+// ================= BACKGROUND =================
 const introSlide = document.getElementById('intro-slide');
 
 const bgImages = [
@@ -282,7 +293,8 @@ function changeBackground(){
 
 setInterval(changeBackground, 5000);
 changeBackground();
+
 </script>
 
 </body>
-</html>
+</html>*
