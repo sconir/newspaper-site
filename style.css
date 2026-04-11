@@ -166,3 +166,23 @@ h2 {
 body {
     overflow-x: hidden;
 }
+/* ================= BUTTON FIX ================= */
+#theme-toggle, #lang-toggle {
+    transition: 0.3s;
+    border: none;
+    padding: 10px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* чтобы не было белого фона всегда */
+#theme-toggle, #lang-toggle {
+    background: white;
+}
+
+/* тёмная тема */
+body.dark-mode #theme-toggle,
+body.dark-mode #lang-toggle {
+    background: #222;
+    color: white;
+}
