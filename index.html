@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Kukuruza News</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<button id="theme-toggle">🌙</button>
+<button id="lang-toggle">EN</button>
+
+<footer id="global-footer">© Кукуруза.com, все права защищены</footer>
+
+<div class="slider">
+
+    <button class="nav prev" onclick="prevSlide()">❮</button>
+    <button class="nav next" onclick="nextSlide()">❯</button>
+
+    <div class="slides">
+
+        <!-- ================= INTRO ================= -->
+        <section class="slide intro active" id="intro-slide">
+            <div class="intro-overlay">
+                <h1 data-ru="Кукуруза News" data-en="Kukuruza News"></h1>
+
+                <p data-ru="Современная интернет-газета о людях, культуре и мнениях."
+                   data-en="A modern online newspaper about people, culture, and opinions."></p>
+
+                <p class="hint"
+                   data-ru="→ Нажми стрелку справа"
+                   data-en="→ Press the right arrow"></p>
+            </div>
+        </section>
+
+        <!-- ================= ARTICLE 1 ================= -->
+        <article class="slide">
+            <div class="site-header">
+                <div class="site-title">Кукуруза.com</div>
+                <div class="date" id="date-1"></div>
+            </div>
+
+            <h2 data-ru="Как зарядить батарею и выглядеть на все 100!"
+                data-en="How to charge the battery and look your best!"></h2>
+
+            <p class="author"
+               data-ru="Автор: Полина Каптилович"
+               data-en="Author: Polina Kaptilovich"></p>
+
+            <p data-ru="Привет! Думаешь, что здоровый образ жизни — это только про правильное питание и утренние пробежки? На самом деле это твой «чит-код» к отличному настроению, чистой коже и бешеной энергии.
+Первый секрет простой — это сон. Да, как бы банально это ни звучало, но если ты будешь спать 8–9 часов, то перестанешь «тупить» на занятиях и забудешь про синяки под глазами.
+Еда — это твоя энергия, и закидывать в себя только вредную еду — всё равно что медленно убивать свой организм. Попробуй добавить в рацион больше фруктов и пить обычную воду, и ты удивишься, как быстрее начнёт работать твой мозг.
+Движение — это не обязательно только физкультура в школе; езда на велосипеде, танцы или прогулки с собакой тоже отлично подходят. Здоровый образ жизни — это ещё и умение вовремя «отключаться» от социальных сетей, ведь многие подростки любят сидеть в TikTok до поздней ночи.
+
+Не пытайся изменить всё сразу, начни с одной полезной привычки в неделю.
+Маленькие шаги помогут тебе почувствовать себя гораздо увереннее.
+Помни, твоё тело — это «дом», в котором ты будешь жить всю жизнь. Так почему бы не сделать этот дом максимально комфортным уже сейчас? Твоё тело скажет тебе «спасибо» за отличное самочувствие и классное отражение в зеркале!"
+               data-en="Hello! Do you think a healthy lifestyle is only about healthy food and running in the morning? In fact, this is your «cheat code» for a cool mood, clean skin and crazy energy.
+The first secret is simple - it's a dream. Yes, no matter how trite it may sound, but if you sleep for 8-9 hours, you will stop being «stupid» in class and forget about bruises under your eyes. Food is your energy, and throwing only junk food into yourself is the same as slowly killing your body. Try to add more fruit to your diet and drink plain water, and you'll be surprised how your brain will start thinking faster.
+Movement is not necessarily just physical education at school; cycling, dancing or walking with a dog also work great. Healthy lifestyle is also about the ability to «turn off» from social networks in time, as many teenagers like to sit in tik tok until late. 
+
+Don't try to change everything at once, start with one useful habit a week.
+Small steps will make you feel much more confident. Remember that your body is a «house» in which you will live all your life. So why not make this house as comfortable as possible right now?
+Your body will say «thank you» for your excellent well-being and a cool reflection in the mirror!"></p>
+
+            <img class="article-image" src="images/article1.jpg">
+        </article>
+
+        <!-- ================= ARTICLE 2 ================= -->
+        <article class="slide">
+            <div class="site-header">
+                <div class="site-title">Кукуруза.com</div>
+                <div class="date" id="date-2"></div>
+            </div>
+
+            <h2 data-ru="Город добрых дел: присоединяйтесь к благотворительной акции" data-en="City of Good Deeds: join the charity event."></h2>
+
+            <p class="author"
+               data-ru="Автор: Шиманович Карина"
+               data-en="Author: Shimanovich Karina"></p>
+
+            <p data-ru="Помогать другим на самом деле гораздо проще, чем кажется, и приносит много радости. В настоящее время в городе проходит благотворительная акция по сбору средств для семей, оказавшихся в трудной жизненной ситуации, а также для пожилых людей и детей. Каждый из нас может поделиться тем, что у него есть: принести одежду, обувь, игрушки, книги, канцелярские принадлежности или скоропортящиеся продукты. Даже если кажется, что ваш вклад очень мал, для кого-то это может стать настоящим спасением и поводом улыбнуться.
+
+Пункты сбора расположены в каждом районе города — рядом с домом, на работе или в дороге. Они работают по гибкому графику, чтобы вы могли приходить в удобное для вас время. Нет необходимости заполнять сложные документы: просто принесите чистые и целые вещи в специальном контейнере или передайте их волонтерам. Кроме того, в организации БРСМ всегда подскажут, в чем вы сейчас больше всего нуждаетесь, и искренне примут вашу помощь.
+
+Ваша поддержка очень важна: для детей это могут быть новые игрушки и книги, для семей — теплая одежда и еда, а для пожилых людей — не только вещи, но и простое человеческое внимание. Участие в акции от всего сердца - отличный способ провести время со своей семьей или друзьями. Вы можете устроить встречу в классе, на работе или среди соседей — это объединяет и дарит положительные эмоции.Спасибо за понимание!"
+               data-en="Helping others is actually much easier than it seems, and brings a lot of joy. Currently, a charity event is taking place in the city to raise funds for families in difficult situations, as well as for the elderly and children. Each of us can share what we have: bring clothes, shoes, toys, books, stationery or perishable products. Even if it seems that your contribution is very small, for someone it can be a real salvation and a reason to smile.
+
+Collection points are located in every district of the city — near home, at work, or on the road. They work a flexible schedule so that you can come at your convenience. There is no need to fill out complicated documents: just bring clean and whole things in a special container or give them to the volunteers. Also, the BRSM organization will always tell you what you need most right now, and they will sincerely accept your help.
+
+Your support is very important: for children, it can be new toys and books, for families — warm clothes and food, and for the elderly — not only things, but also simple human attention. Participating in the promotion wholeheartedly is a great way to spend time with your family or friends. You can arrange a meeting in the classroom, at work or among the neighbors — it unites and gives positive emotions.Thank you for understanding!"></p>
+
+            <img class="article-image" src="images/article2.jpg">
+        </article>
+
+        <!-- ================= ARTICLE 3 ================= -->
+        <article class="slide">
+            <div class="site-header">
+                <div class="site-title">Кукуруза.com</div>
+                <div class="date" id="date-3"></div>
+            </div>
+
+            <h2 data-ru="Боль, дружба и мотоцикл: чтение, от которого невозможно оторваться." data-en="Pain, friendship, and a motorcycle: a read you can't put down."></h2>
+
+            <p class="author"
+               data-ru="Автор: Виктория Билостецкая"
+               data-en="Author: Victoria Bilostetskaya"></p>
+
+            <p data-ru="Читая книги Анны Джейн «Твоё сердце будет разбито» и «По осколкам твоего сердца», я переживала за героев как за себя. Автор честно предупреждает о боли, и она действительно происходит.
+
+Первая книга неожиданная и показывает, как девушка Полина страдает из-за парня. Джейн не делает историю романтичной, а показывает её жестокость. Конец книги — это удар, который оставляет боль.
+
+Во второй книге Полина работает над собой после пережитого. Поддержка друзей и мотоцикл помогают ей. Книги учат честно смотреть на токсичные отношения.
+
+Это глубокое и важное чтение, которое заставляет переосмыслить прошлое. Рекомендую тем, кто готов к сильным эмоциям и хочет понять, что из сложной ситуации можно выбраться."
+               data-en="Reading Anna Jane's books «Tvoe serdtse budet» razbito and «Po oskolkam tvoego serdtsa», I worried about the characters as for myself. The author honestly warns about the pain, and it happens.
+
+The first book is unexpected and shows how the girl Polina suffers from a guy. Jane does not make the story romantic, but shows its cruelty. The end of the book is a blow that leaves pain.
+
+In the second book, Polina works on herself after the experience. The support of her friends and the motorcycle helps her. Books teach you to look honestly at toxic relationships.
+
+This is a deep and important reading that forces us to rethink the past. I recommend it to those who are ready for strong emotions and want to understand that it is possible to get out of a difficult situation."></p>
+
+            <img class="article-image" src="images/article3.jpg">
+        </article>
+
+        <!-- ================= ARTICLE 4 ================= -->
+        <article class="slide">
+            <div class="site-header">
+                <div class="site-title">Кукуруза.com</div>
+                <div class="date" id="date-4"></div>
+            </div>
+
+            <h2 data-ru="Места Кореличского района, которые стоит посетить." data-en="Places in the Korelichy District worth visiting."></h2>
+
+            <p class="author"
+               data-ru="Автор: Дмитрий Яхно"
+               data-en="Author: Dmitry Yakhno"></p>
+
+            <p data-ru="В этой статье вы узнаете о достопримечательностях в посёлке Кореличи и его окрестностях.
+
+Кореличский район богат различными достопримечательностями. Одной из самых популярных является Мирский замок. Это здание в стиле восточной готики. Мирский замок был построен магнатом Ильиничем в начале XVI века. С тех пор замком владели Радзивиллы, Святополк-Мирские и другие. Рядом находится часовня-усыпальница князей Святополк-Мирских. Она была построена в 1904 году по проекту Марфельда.
+
+Также здесь есть множество мест, посвящённых религии: это комплекс церкви Святого Николая, церковь Божией Матери, церковь Покрова Пресвятой Богородицы.
+
+В Кореличах находится мемориальный комплекс «Звезда». Он посвящён павшим солдатам, освободившим район во время Второй мировой войны. На территории мемориала установлен памятник воинам-интернационалистам. Также в Кореличах есть краеведческий музей, памятники Яну Чечету, Николаю Артюху и другим.
+
+В этой статье перечислены не все достопримечательности. Были названы самые популярные. Кореличский район — это красивый край с богатой историей. Это место, которое стоит посетить."
+               data-en="In this article you will learn about the sights in the village of Korelich and its area. 
+
+Korelichi district is rich in various attractions. One of the most popular is the Mir castle. It is an oriental Gothic building. Mir castle was built by magnate Ilinich in the early 16th century. Sinse then the Radziwills, Svyatopolk Mirsky and others have owned the castle. Nearby is the chapel of thetomb of the princes Svyatopolk Mirsky. It was built in 1904 according to the Marfeld project.
+
+There are also many places dedicated to religion these are the Complex of st Nicholas church, Church of the Mother of God, the Church of the intercession of the Most Holy Theotokos.
+
+There is Star memorial complex in Korelichi. It is dedicated to the fallen soldiers who liberated the area during the Second World War. There is a monument to the fallen internationalist soldiers on the territory of the memorial. There is also a museum of local lore in Korelichi, a monument Jan Chechet, Nikolai Artyukh, and other. 
+
+This article does not list all the attractions. The most popular were named. Korelichi district is a beautiful area with a long history. This is an area worth visiting"></p>
+
+            <img class="article-image" src="images/article4.jpg">
+        </article>
+
+        <!-- ================= ARTICLE 5 ================= -->
+        <article class="slide">
+            <div class="site-header">
+                <div class="site-title">Кукуруза.com</div>
+                <div class="date" id="date-5"></div>
+            </div>
+
+            <h2 data-ru="Как весело подросток может проводить летние каникулы." data-en="How a teenager can have fun during the summer holidays."></h2>
+
+            <p class="author"
+               data-ru="Автор: Стас Починчик"
+               data-en="Author: Stas Pochinchuk"></p>
+
+            <p data-ru="Летом подростки любят проводить первую половину дня в телефонах, а потом гулять допоздна. Но сейчас модно заниматься чем-то более интересным. Прежде всего, я хочу сказать, что самое интересное — это то, что хочется делать именно тебе. Первое и, конечно, очевидное — заниматься спортом: это полезно и увлекательно. Устроиться на работу. По собственному опыту могу сказать, что это невероятно полезно, и к тому же можно заработать деньги. Конечно, гулять по вечерам, изучать достопримечательности города и окрестностей и просто наслаждаться жизнью вместо того, чтобы сидеть в телефоне."
+               data-en="In the summer, teenagers like to spend the first half of the day on their phones and then hang out until late. But it's trendy to do something more interesting. First of all, I want to say that the most interesting thing is what you want to do. The first and, of course, obvious thing is to play sports—it's useful and exciting. Go to work. From my own experience, I can say that it's incredibly useful and there's money to be made. Of course, go for walks in the evenings, explore the sights of the city and surrounding towns, and just enjoy life instead of sitting on your phone."></p>
+
+            <img class="article-image" src="images/article5.jpg">
+        </article>
+
+        <!-- ================= ARTICLE 6 ================= -->
+        <article class="slide">
+            <div class="site-header">
+                <div class="site-title">Кукуруза.com</div>
+                <div class="date" id="date-6"></div>
+            </div>
+
+            <h2 data-ru="Статья 6" data-en="Article 6"></h2>
+
+            <p class="author"
+               data-ru="Автор: Автор 6"
+               data-en="Author: Author 6"></p>
+
+            <p data-ru="Текст шестой статьи"
+               data-en="Text of the sixth article"></p>
+
+            <img class="article-image" src="images/article6.jpg">
+        </article>
+
+        <!-- ================= ARTICLE 7 ================= -->
+        <article class="slide">
+            <div class="site-header">
+                <div class="site-title">Кукуруза.com</div>
+                <div class="date" id="date-7"></div>
+            </div>
+
+            <h2 data-ru="Что подросткам следует знать о здоровом образе жизни." data-en="What teenagers should know about a healthy lifestyle."></h2>
+
+            <p class="author"
+               data-ru="Автор: Бында Злата"
+               data-en="Author: Bynda Zlata"></p>
+
+            <p data-ru="Тема моей статьи — что подростки должны знать о здоровом образе жизни. Здоровый образ жизни — это основа здоровья, включая здоровое питание: регулярное питание, богатое витаминами, ограничение фастфуда и сладких напитков. Важно поддерживать водный баланс.
+Регулярная физическая активность: ежедневные прогулки на свежем воздухе, спорт и активные игры. Поддержание распорядка дня — ключ к здоровью. Подросткам необходимо 8-10 часов сна для восстановления нервной системы. Личная гигиена: ежедневный душ, уход за зубами и регулярное мытье рук.
+Отказ от вредных привычек: важно понимать вред курения, алкоголя и наркотиков, которые разрушительны для организма.
+Здоровый образ жизни — это способ изменить свою жизнь к лучшему. Это длительный, но очень эффективный процесс, который помогает улучшить ваше физическое и психическое здоровье. Примите здоровый образ жизни, чтобы прожить долгую и счастливую жизнь."
+               data-en="The topic of my article is what teenagers should know about a healthy lifestyle. A healthy lifestyle is the foundation of health, including a healthy diet: regular meals rich in vitamins, limiting fast food and sugary drinks. Maintaining a hydration balance is important.
+Regular physical activity: daily walks in the fresh air, sports, and active play. Maintaining a daily routine is the key to health. Teenagers need 8-10 hours of sleep to restore their nervous system. Personal hygiene: Showering daily, dental care, and regular hand washing.
+Quitting bad habits: It's important to understand the harm of smoking, alcohol, and drugs, which are destructive to the body.
+A healthy lifestyle is a way to change your life for the better. It's a long, but highly effective process that helps improve your physical and mental health. Adopt a healthy lifestyle to live a long and happy life."></p>
+
+            <img class="article-image" src="images/article7.jpg">
+        </article>
+
+    </div>
+</div>
+
+<script>
+
+// ================= SLIDES =================
+let current = 0;
+const slides = document.querySelectorAll(".slide");
+
+function showSlide(index){
+    slides.forEach(s => s.classList.remove("active"));
+
+    // защита от выхода за границы
+    if(index < 0) index = slides.length - 1;
+    if(index >= slides.length) index = 0;
+
+    current = index;
+    slides[current].classList.add("active");
+
+    updateScrollLock();
+}
+
+function nextSlide(){
+    showSlide(current + 1);
+}
+
+function prevSlide(){
+    showSlide(current - 1);
+}
+
+// ================= SCROLL LOCK (ИСПРАВЛЕНО) =================
+function updateScrollLock(){
+    const isIntro = slides[current].classList.contains("intro");
+
+    if(isIntro){
+        document.body.style.overflow = "hidden";
+    } else {
+        document.body.style.overflow = "auto";
+    }
+}
+
+// ================= DATES =================
+for(let i=1;i<=8;i++){
+    const el = document.getElementById(`date-${i}`);
+    if(el) el.innerText = new Date().toLocaleDateString('ru-RU');
+}
+
+// ================= LANGUAGE =================
+let lang = "ru";
+
+function updateLang(){
+    document.querySelectorAll("[data-ru]").forEach(el=>{
+        el.innerText = el.getAttribute(`data-${lang}`);
+    });
+
+    document.getElementById("lang-toggle").innerText =
+        lang === "ru" ? "EN" : "RU";
+}
+
+document.getElementById("lang-toggle").onclick = () => {
+    lang = lang === "ru" ? "en" : "ru";
+    updateLang();
+};
+
+// ================= THEME =================
+let dark = false;
+
+function updateTheme(){
+    document.body.classList.toggle("dark-mode", dark);
+
+    document.getElementById("theme-toggle").innerText =
+        dark ? "☀️" : "🌙";
+}
+
+document.getElementById("theme-toggle").onclick = () => {
+    dark = !dark;
+    updateTheme();
+};
+
+// ================= BACKGROUND =================
+const introSlide = document.getElementById('intro-slide');
+
+const bgImages = [
+    'images/intro1.jpg',
+    'images/intro2.jpg',
+    'images/intro3.jpg',
+    'images/intro4.jpg',
+    'images/intro5.jpg',
+    'images/intro6.jpg',
+    'images/intro7.jpg',
+    'images/intro8.jpg',
+    'images/intro9.jpg',
+    'images/intro10.jpg'
+];
+
+let bgIndex = 0;
+
+function changeBackground(){
+    introSlide.style.backgroundImage =
+        `url('${bgImages[bgIndex]}?t=${Date.now()}')`;
+
+    bgIndex = (bgIndex + 1) % bgImages.length;
+}
+
+setInterval(changeBackground, 5000);
+changeBackground();
+
+</script>
+
+</body>
+</html>*
