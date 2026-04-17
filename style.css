@@ -236,3 +236,36 @@ body.intro-lock {
     background: #222;
     color: white;
 }
+/* ================= PRO BACKGROUND ================= */
+
+#intro-slide {
+    position: relative;
+    overflow: hidden;
+}
+
+.bg-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-size: cover;
+    background-position: center;
+
+    transition: opacity 1.5s ease;
+    z-index: 0;
+}
+
+.bg1 {
+    opacity: 1;
+}
+
+.bg2 {
+    opacity: 0;
+}
+
+.intro-overlay {
+    position: relative;
+    z-index: 2;
+}
