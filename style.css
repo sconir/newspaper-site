@@ -124,3 +124,8 @@ article {
     opacity: 0.6;
     z-index: 20;
 }
+
+html, body {
+    height: 100%;
+    overflow-x: hidden;
+}
