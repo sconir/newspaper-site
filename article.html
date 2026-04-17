@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Article</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<a href="index.html" class="back">← Назад</a>
+
+<div id="article" class="article"></div>
+
+<script>
+const articles = {
+1: {
+title: "Как зарядить батарею",
+text: "Полный текст статьи 1...",
+img: "images/article1.jpg"
+},
+2: {
+title: "Город добрых дел",
+text: "Полный текст статьи 2...",
+img: "images/article2.jpg"
+},
+3: {
+title: "Боль и дружба",
+text: "Полный текст статьи 3...",
+img: "images/article3.jpg"
+}
+};
+
+const params = new URLSearchParams(location.search);
+const id = params.get("id");
+
+const a = articles[id];
+
+document.getElementById("article").innerHTML = `
+    <h1>${a.title}</h1>
+    <img src="${a.img}">
+    <p>${a.text}</p>
+`;
+</script>
+
+</body>
+</html>
