@@ -8,6 +8,31 @@
 
 <body>
 
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-storage-compat.js"></script>
+
+<script>
+const firebaseConfig = {
+  apiKey: "AIzaSyDK2Tehci8QyIprpW-BPquNWExG6olOe9o",
+  authDomain: "kukuruza-news.firebaseapp.com",
+  projectId: "kukuruza-news",
+  storageBucket: "kukuruza-news.firebasestorage.app",
+  messagingSenderId: "1044182496668",
+  appId: "1:1044182496668:web:0cce99dfeb0a2d9cd88459"
+};
+
+// Инициализация
+firebase.initializeApp(firebaseConfig);
+
+// База данных
+const db = firebase.firestore();
+
+// Хранилище (для картинок)
+const storage = firebase.storage();
+</script>
+
 <button id="theme-toggle">🌙</button>
 <button id="lang-toggle">EN</button>
 
