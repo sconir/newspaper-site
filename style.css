@@ -1,69 +1,57 @@
-/* ============================= */
-/* ПЕРЕМЕННЫЕ ТЕМЫ */
 :root {
-    --bg-color: #f4f1ea;
-    --text-color: #222;
-    --article-bg: #fff;
-    --h2-border: black;
-    --overlay-bg: rgba(255,255,255,0.6);
+    --bg: #f4f1ea;
+    --text: #222;
+    --card: #fff;
 }
 
 body.dark-mode {
-    --bg-color: #121212;
-    --text-color: #eee;
-    --article-bg: #1e1e1e;
-    --h2-border: #eee;
-    --overlay-bg: rgba(0,0,0,0.6);
+    --bg: #111;
+    --text: #eee;
+    --card: #1e1e1e;
 }
 
-/* ============================= */
 body {
     margin: 0;
     font-family: Georgia, serif;
-    background: var(--bg-color);
-    color: var(--text-color);
-    transition: background 0.5s, color 0.5s;
+    background: var(--bg);
+    color: var(--text);
+    overflow: hidden;
 }
 
-/* Кнопки */
-#theme-toggle, #lang-toggle {
+/* PRO BACKGROUND */
+body::before {
+    content: "";
     position: fixed;
-    top: 20px;
-    z-index: 2000;
-    padding: 10px;
-    cursor: pointer;
+    inset: 0;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.08), transparent 40%),
+        radial-gradient(circle at 80% 30%, rgba(255,255,255,0.05), transparent 50%),
+        radial-gradient(circle at 50% 80%, rgba(255,255,255,0.04), transparent 60%);
+    pointer-events: none;
+    z-index: 0;
 }
 
-#theme-toggle { right: 20px; }
-#lang-toggle { right: 80px; }
-
-/* Футер */
-#global-footer {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    font-size: 12px;
-    color: gray;
-    z-index: 2000;
-}
-
-/* Слайды */
+/* SLIDES */
 .slide {
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    position: absolute;
-    width: 100%;
-    height: 100%;
+    display: none;
     padding: 40px;
+    min-height: 100vh;
     box-sizing: border-box;
+    position: relative;
+    z-index: 1;
 }
 
 .slide.active {
-    opacity: 1;
-    position: relative;
+    display: block;
+    animation: fade 0.6s ease;
 }
 
-/* Главный экран */
+@keyframes fade {
+    from {opacity: 0; transform: scale(0.98);}
+    to {opacity: 1; transform: scale(1);}
+}
+
+/* INTRO */
 .intro {
     display: flex;
     justify-content: center;
@@ -71,201 +59,68 @@ body {
     text-align: center;
     background-size: cover;
     background-position: center;
-    min-height: 100vh;
 }
 
-/* 🔥 GLASS UI */
 .intro-overlay {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255,255,255,0.15);
     backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-
-    padding: 20px 40px;
-    border-radius: 15px;
-
-    border: 1px solid rgba(255,255,255,0.3);
-    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    padding: 30px;
+    border-radius: 20px;
 }
 
-body.dark-mode .intro-overlay {
-    background: rgba(0, 0, 0, 0.3);
-}
-
-/* Статьи */
+/* ARTICLE */
 article {
-    max-width: 700px;
+    max-width: 800px;
     margin: auto;
-    background: var(--article-bg);
+    background: var(--card);
     padding: 20px;
-    position: relative;
+    border-radius: 15px;
 }
 
-/* ================= ARTICLE IMAGE FIX ================= */
+/* IMAGE */
 .article-image {
-    display: block;
     width: 100%;
-    max-width: 700px;   /* как у текста */
-    margin: 20px auto;  /* центрирование */
-    
-    height: auto;       /* сохраняет пропорции */
-    object-fit: contain;
-
-    border-radius: 10px;
+    border-radius: 12px;
+    margin-top: 15px;
 }
 
-/* Заголовки */
-h2 {
-    border-bottom: 1px solid var(--h2-border);
-}
-
-.author {
-    color: gray;
-    font-size: 14px;
-}
-
-/* 🔥 СТРЕЛКИ (ИСПРАВЛЕНО) */
+/* NAV */
 .nav {
     position: fixed;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 60px;
+    font-size: 50px;
     background: rgba(0,0,0,0.3);
     color: white;
     border: none;
-    padding: 20px 25px;
+    padding: 10px 20px;
     cursor: pointer;
-    z-index: 3000; /* главное исправление */
+    z-index: 10;
 }
 
 .prev { left: 10px; }
 .next { right: 10px; }
-/* ================= FADE ANIMATION ================= */
-.slide {
-    opacity: 0;
-    transition: opacity 0.6s ease, transform 0.6s ease;
-    transform: scale(0.98);
-}
 
-.slide.active {
-    opacity: 1;
-    transform: scale(1);
-}
-
-/* ================= TEXT ANIMATION ================= */
-.slide h1, .slide h2, .slide p {
-    animation: fadeUp 0.6s ease;
-}
-
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* ================= BUTTON FIX ================= */
+/* BUTTONS */
 #theme-toggle, #lang-toggle {
-    transition: 0.3s;
-    border: none;
-    padding: 10px 12px;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-/* чтобы не было белого фона всегда */
-#theme-toggle, #lang-toggle {
-    background: white;
-}
-
-/* тёмная тема */
-body.dark-mode #theme-toggle,
-body.dark-mode #lang-toggle {
-    background: #222;
-    color: white;
-}
-
-/* ================= LOCK SCROLL ON INTRO ================= */
-body.intro-lock {
-    overflow: hidden;
-    height: 100vh;
-}
-
-#admin-btn {
     position: fixed;
-    bottom: 20px;
-    left: 20px;
-    z-index: 2000;
+    top: 20px;
     padding: 10px;
     border-radius: 10px;
+    border: none;
     cursor: pointer;
+    z-index: 20;
 }
 
-.admin-panel {
+#theme-toggle { right: 20px; }
+#lang-toggle { right: 80px; }
+
+/* FOOTER */
+#global-footer {
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: white;
-    width: 400px;
-    max-height: 80vh;
-    overflow-y: auto;
-    padding: 20px;
-    border-radius: 15px;
-    display: none;
-    flex-direction: column;
-    gap: 10px;
-    z-index: 3000;
-}
-
-.admin-panel input,
-.admin-panel textarea {
-    width: 100%;
-    padding: 8px;
-}
-
-.admin-panel button {
-    padding: 10px;
-    cursor: pointer;
-}
-
-.dark-mode .admin-panel {
-    background: #222;
-    color: white;
-}
-/* ================= PRO BACKGROUND ================= */
-
-#intro-slide {
-    position: relative;
-    overflow: hidden;
-}
-
-.bg-layer {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-
-    background-size: cover;
-    background-position: center;
-
-    transition: opacity 1.5s ease;
-    z-index: 0;
-}
-
-.bg1 {
-    opacity: 1;
-}
-
-.bg2 {
-    opacity: 0;
-}
-
-.intro-overlay {
-    position: relative;
-    z-index: 2;
+    bottom: 10px;
+    right: 10px;
+    font-size: 12px;
+    opacity: 0.6;
+    z-index: 20;
 }
