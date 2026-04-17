@@ -119,6 +119,8 @@ function showSlide(index){
 
     current = index;
     slides[current].classList.add("active");
+
+    window.scrollTo({ top: 0, behavior: "instant" });
 }
 
 function nextSlide(){ showSlide(current + 1); }
