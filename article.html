@@ -8,11 +8,19 @@
 
 <body>
 
-<button onclick="goHome()" class="back-btn">← Home</button>
+<button onclick="goHome()" class="back">←</button>
 
-<article class="article-page">
-    <h1>Заголовок статьи</h1>
-    <p>Контент статьи...</p>
+<article class="article">
+
+    <div class="article-header">
+        <h1 id="title"></h1>
+        <p id="author"></p>
+    </div>
+
+    <img id="img" class="article-img">
+
+    <div id="text"></div>
+
 </article>
 
 <script src="script.js"></script>
