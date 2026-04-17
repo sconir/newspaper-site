@@ -206,10 +206,9 @@ document.addEventListener("DOMContentLoaded", () => {
     updateTheme();
     showSlide(0);
 });
-// ================= RANDOM INTRO BACKGROUND =================
-const intro = document.querySelector(".intro");
+// ================= PRO INTRO BACKGROUND =================
 
-const bgImages = [
+const images = [
     "images/intro1.jpg",
     "images/intro2.jpg",
     "images/intro3.jpg",
@@ -222,27 +221,42 @@ const bgImages = [
     "images/intro10.jpg"
 ];
 
-let lastIndex = -1;
+// preload (очень важно для PRO плавности)
+images.forEach(src => {
+    const img = new Image();
+    img.src = src;
+});
 
-function randomBackground(){
-    let index;
+const bg1 = document.querySelector(".bg1");
+const bg2 = document.querySelector(".bg2");
+
+let current = 0;
+let showingFirst = true;
+
+function nextImage(){
+    let next;
 
     do {
-        index = Math.floor(Math.random() * bgImages.length);
-    } while(index === lastIndex);
+        next = Math.floor(Math.random() * images.length);
+    } while(next === current);
 
-    lastIndex = index;
+    current = next;
 
-    intro.style.backgroundImage = `url('${bgImages[index]}')`;
-    intro.style.backgroundSize = "cover";
-    intro.style.backgroundPosition = "center";
+    const active = showingFirst ? bg1 : bg2;
+    const inactive = showingFirst ? bg2 : bg1;
+
+    inactive.style.backgroundImage = `url('${images[current]}')`;
+    inactive.style.opacity = "1";
+    active.style.opacity = "0";
+
+    showingFirst = !showingFirst;
 }
 
-// старт
-randomBackground();
+// стартовое изображение
+bg1.style.backgroundImage = `url('${images[0]}')`;
 
-// каждые 10 секунд
-setInterval(randomBackground, 10000);
+// запуск
+setInterval(nextImage, 10000);
 </script>
 
 </body>
