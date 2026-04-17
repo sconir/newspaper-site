@@ -146,7 +146,7 @@ document.getElementById("admin-pass").oninput = (e) => {
     }
 };
 
-// 👇 FIX: теперь работает глобально
+//  FIX: теперь работает глобально
 async function addArticle(){
 
     const titleRU = document.getElementById("title-ru").value;
@@ -172,7 +172,7 @@ async function addArticle(){
     alert("Статья добавлена!");
 }
 
-// 👇 FIX: глобальная доступность для onclick
+//  FIX: глобальная доступность для onclick
 window.addArticle = addArticle;
 
 // ================= LOAD ARTICLES =================
