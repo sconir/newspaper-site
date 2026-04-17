@@ -2,46 +2,32 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<title>Article</title>
+<title>Kukuruza News</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<a href="index.html" class="back">← Назад</a>
+<h1 class="logo">Kukuruza News</h1>
 
-<div id="article" class="article"></div>
+<div class="feed">
 
-<script>
-const articles = {
-1: {
-title: "Как зарядить батарею",
-text: "Полный текст статьи 1...",
-img: "images/article1.jpg"
-},
-2: {
-title: "Город добрых дел",
-text: "Полный текст статьи 2...",
-img: "images/article2.jpg"
-},
-3: {
-title: "Боль и дружба",
-text: "Полный текст статьи 3...",
-img: "images/article3.jpg"
-}
-};
+    <a class="card" href="article.html?id=1">
+        <h2>Как зарядить батарею</h2>
+        <p>ЗОЖ и энергия...</p>
+    </a>
 
-const params = new URLSearchParams(location.search);
-const id = params.get("id");
+    <a class="card" href="article.html?id=2">
+        <h2>Город добрых дел</h2>
+        <p>Благотворительность...</p>
+    </a>
 
-const a = articles[id];
+    <a class="card" href="article.html?id=3">
+        <h2>Боль и дружба</h2>
+        <p>Книги Анны Джейн...</p>
+    </a>
 
-document.getElementById("article").innerHTML = `
-    <h1>${a.title}</h1>
-    <img src="${a.img}">
-    <p>${a.text}</p>
-`;
-</script>
+</div>
 
 </body>
 </html>
