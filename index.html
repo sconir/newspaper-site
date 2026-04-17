@@ -8,21 +8,38 @@
 
 <body>
 
-<!-- UI -->
+<!-- TOP UI -->
 <button id="theme-toggle">🌙</button>
 <button id="lang-toggle">EN</button>
 
-<div class="top-bar">
-    <h1 data-ru="Kukuruza News" data-en="Kukuruza News"></h1>
-    <p data-ru="Современная интернет-газета" data-en="Modern online newspaper"></p>
+<!-- HERO -->
+<section class="hero">
 
-    <button class="main-btn" onclick="goToArticles()"
-        data-ru="Перейти к статьям"
-        data-en="Go to articles"></button>
-</div>
+    <div class="hero-bg"></div>
 
-<!-- PRO BACKGROUND SLIDER -->
-<div class="bg"></div>
+    <div class="hero-content glass">
+
+        <h1 data-ru="Kukuruza News" data-en="Kukuruza News"></h1>
+
+        <p data-ru="Современная интернет-газета о культуре, людях и технологиях"
+           data-en="Modern online newspaper about culture, people and technology"></p>
+
+        <div class="hero-buttons">
+            <button onclick="showLatest()" data-ru="Последние статьи" data-en="Latest articles"></button>
+            <button onclick="showWeekly()" data-ru="По неделям" data-en="By weeks"></button>
+        </div>
+
+    </div>
+</section>
+
+<!-- ARTICLES PANEL -->
+<section class="panel hidden" id="panel">
+
+    <h2 id="panel-title"></h2>
+
+    <div id="articles"></div>
+
+</section>
 
 <script src="script.js"></script>
 </body>
