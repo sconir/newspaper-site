@@ -8,7 +8,6 @@
 
 <body>
 
-<!-- UI -->
 <button id="theme-toggle">🌙</button>
 <button id="lang-toggle">EN</button>
 
@@ -22,35 +21,23 @@
     <div class="slides">
 
         <!-- INTRO -->
-       <section class="slide intro active" id="intro-slide">
-
-    <div class="bg-layer bg1"></div>
-    <div class="bg-layer bg2"></div>
-
-    <div class="intro-overlay">
-        <h1 data-ru="Кукуруза News" data-en="Kukuruza News"></h1>
-
-        <p data-ru="Современная интернет-газета о людях, культуре и мнениях."
-           data-en="A modern online newspaper about people, culture, and opinions."></p>
-
-        <p data-ru="→ Нажми стрелку справа"
-           data-en="→ Press the right arrow"></p>
-    </div>
-
-</section>
+        <section class="slide intro active" id="intro-slide">
+            <div class="intro-overlay">
+                <h1 data-ru="Кукуруза News" data-en="Kukuruza News"></h1>
+                <p data-ru="Современная интернет-газета о людях, культуре и мнениях."
+                   data-en="A modern online newspaper about people, culture, and opinions."></p>
+                <p class="hint"
+                   data-ru="→ Нажми стрелку справа"
+                   data-en="→ Press the right arrow"></p>
+            </div>
+        </section>
 
         <!-- ARTICLE 1 -->
         <article class="slide">
             <h2 data-ru="Как зарядить батарею и выглядеть на все 100!"
                 data-en="How to charge the battery and look your best!"></h2>
-
-            <p class="author"
-               data-ru="Автор: Полина Каптилович"
-               data-en="Author: Polina Kaptilovich"></p>
-
-            <p data-ru="ЗДЕСЬ ТВОЙ ТЕКСТ RU"
-               data-en="HERE YOUR TEXT EN"></p>
-
+            <p data-ru="Привет! ЗОЖ..." 
+               data-en="Hello! Healthy lifestyle..."></p>
             <img class="article-image" src="images/article1.jpg">
         </article>
 
@@ -58,14 +45,8 @@
         <article class="slide">
             <h2 data-ru="Город добрых дел"
                 data-en="City of Good Deeds"></h2>
-
-            <p class="author"
-               data-ru="Автор: Шиманович Карина"
-               data-en="Author: Shimanovich Karina"></p>
-
-            <p data-ru="ТЕКСТ RU"
-               data-en="TEXT EN"></p>
-
+            <p data-ru="Благотворительность..." 
+               data-en="Charity..."></p>
             <img class="article-image" src="images/article2.jpg">
         </article>
 
@@ -73,29 +54,17 @@
         <article class="slide">
             <h2 data-ru="Боль, дружба и мотоцикл"
                 data-en="Pain, friendship and a motorcycle"></h2>
-
-            <p class="author"
-               data-ru="Автор: Виктория Билостецкая"
-               data-en="Author: Victoria Bilostetskaya"></p>
-
-            <p data-ru="ТЕКСТ RU"
-               data-en="TEXT EN"></p>
-
+            <p data-ru="Книги Анны Джейн..." 
+               data-en="Anna Jane books..."></p>
             <img class="article-image" src="images/article3.jpg">
         </article>
 
         <!-- ARTICLE 4 -->
         <article class="slide">
             <h2 data-ru="Кореличский район"
-                data-en="Korelichi district"></h2>
-
-            <p class="author"
-               data-ru="Автор: Дмитрий Яхно"
-               data-en="Author: Dmitry Yakhno"></p>
-
-            <p data-ru="ТЕКСТ RU"
-               data-en="TEXT EN"></p>
-
+                data-en="Korelichi District"></h2>
+            <p data-ru="Достопримечательности..." 
+               data-en="Attractions..."></p>
             <img class="article-image" src="images/article4.jpg">
         </article>
 
@@ -103,44 +72,26 @@
         <article class="slide">
             <h2 data-ru="Летние каникулы"
                 data-en="Summer holidays"></h2>
-
-            <p class="author"
-               data-ru="Автор: Стас Починчик"
-               data-en="Author: Stas Pochinchuk"></p>
-
-            <p data-ru="ТЕКСТ RU"
-               data-en="TEXT EN"></p>
-
+            <p data-ru="Как проводить лето..." 
+               data-en="How to spend summer..."></p>
             <img class="article-image" src="images/article5.jpg">
         </article>
 
         <!-- ARTICLE 6 -->
         <article class="slide">
-            <h2 data-ru="Наука сегодня"
-                data-en="Science today"></h2>
-
-            <p class="author"
-               data-ru="Автор: Алексей Бабанский"
-               data-en="Author: Aliaksei Babanski"></p>
-
-            <p data-ru="ТЕКСТ RU"
-               data-en="TEXT EN"></p>
-
+            <h2 data-ru="Наука и будущее"
+                data-en="Science and future"></h2>
+            <p data-ru="Открытия MIT..." 
+               data-en="MIT discoveries..."></p>
             <img class="article-image" src="images/article6.jpg">
         </article>
 
         <!-- ARTICLE 7 -->
         <article class="slide">
-            <h2 data-ru="Здоровый образ жизни"
-                data-en="Healthy lifestyle"></h2>
-
-            <p class="author"
-               data-ru="Автор: Бында Злата"
-               data-en="Author: Bynda Zlata"></p>
-
-            <p data-ru="ТЕКСТ RU"
-               data-en="TEXT EN"></p>
-
+            <h2 data-ru="ЗОЖ для подростков"
+                data-en="Healthy lifestyle for teens"></h2>
+            <p data-ru="Здоровье важно..." 
+               data-en="Health is important..."></p>
             <img class="article-image" src="images/article7.jpg">
         </article>
 
@@ -148,16 +99,19 @@
 </div>
 
 <script>
-// ================= SLIDES =================
 let current = 0;
+const slides = document.querySelectorAll(".slide");
 
-function getSlides(){
-    return document.querySelectorAll(".slide");
-}
+// ================= INIT =================
+document.addEventListener("DOMContentLoaded", () => {
+    updateLang();
+    updateTheme();
+    showSlide(0);
+    startIntroBackground();
+});
 
+// ================= SLIDES =================
 function showSlide(index){
-    const slides = getSlides();
-
     slides.forEach(s => s.classList.remove("active"));
 
     if(index < 0) index = slides.length - 1;
@@ -200,63 +154,25 @@ document.getElementById("theme-toggle").onclick = () => {
     updateTheme();
 };
 
-// ================= INIT =================
-document.addEventListener("DOMContentLoaded", () => {
-    updateLang();
-    updateTheme();
-    showSlide(0);
-});
 // ================= PRO INTRO BACKGROUND =================
+const introSlide = document.getElementById("intro-slide");
 
-const images = [
-    "images/intro1.jpg",
-    "images/intro2.jpg",
-    "images/intro3.jpg",
-    "images/intro4.jpg",
-    "images/intro5.jpg",
-    "images/intro6.jpg",
-    "images/intro7.jpg",
-    "images/intro8.jpg",
-    "images/intro9.jpg",
-    "images/intro10.jpg"
+const bgImages = [
+"images/intro1.jpg","images/intro2.jpg","images/intro3.jpg",
+"images/intro4.jpg","images/intro5.jpg",
+"images/intro6.jpg","images/intro7.jpg",
+"images/intro8.jpg","images/intro9.jpg","images/intro10.jpg"
 ];
 
-// preload (очень важно для PRO плавности)
-images.forEach(src => {
-    const img = new Image();
-    img.src = src;
-});
-
-const bg1 = document.querySelector(".bg1");
-const bg2 = document.querySelector(".bg2");
-
-let current = 0;
-let showingFirst = true;
-
-function nextImage(){
-    let next;
-
-    do {
-        next = Math.floor(Math.random() * images.length);
-    } while(next === current);
-
-    current = next;
-
-    const active = showingFirst ? bg1 : bg2;
-    const inactive = showingFirst ? bg2 : bg1;
-
-    inactive.style.backgroundImage = `url('${images[current]}')`;
-    inactive.style.opacity = "1";
-    active.style.opacity = "0";
-
-    showingFirst = !showingFirst;
+function randomBg(){
+    const img = bgImages[Math.floor(Math.random() * bgImages.length)];
+    introSlide.style.backgroundImage = `url('${img}')`;
 }
 
-// стартовое изображение
-bg1.style.backgroundImage = `url('${images[0]}')`;
-
-// запуск
-setInterval(nextImage, 10000);
+function startIntroBackground(){
+    randomBg();
+    setInterval(randomBg, 10000);
+}
 </script>
 
 </body>
