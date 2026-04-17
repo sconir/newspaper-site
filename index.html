@@ -277,15 +277,12 @@ A healthy lifestyle is a way to change your life for the better. It's a long, bu
 
 <script>
 
-<script>
-
 // ================= INIT =================
-window.onload = () => {
+document.addEventListener("DOMContentLoaded", () => {
     updateLang();
     updateTheme();
     showSlide(0);
-};
-
+});
 // ================= SLIDES =================
 let current = 0;
 const slides = document.querySelectorAll(".slide");
@@ -427,8 +424,9 @@ async function loadArticles(){
             <img class="article-image" src="${data.imageUrl}">
         `;
 
-        document.querySelector(".slides").appendChild(article);
-    });
+document.addEventListener("DOMContentLoaded", () => {
+    const slides = document.querySelectorAll(".slide");
+});
 
     updateLang();
 }
@@ -437,7 +435,5 @@ loadArticles();
 
 </script>
 
-</script>
-
 </body>
-</html>*
+</html>
