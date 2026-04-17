@@ -4,48 +4,11 @@
 <meta charset="UTF-8">
 <title>Kukuruza News</title>
 <link rel="stylesheet" href="style.css">
-
-<!-- Firebase -->
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-storage-compat.js"></script>
-
-<script>
-const firebaseConfig = {
-  apiKey: "AIzaSyDK2Tehci8QyIprpW-BPquNWExG6olOe9o",
-  authDomain: "kukuruza-news.firebaseapp.com",
-  projectId: "kukuruza-news",
-  storageBucket: "kukuruza-news.firebasestorage.app",
-  messagingSenderId: "1044182496668",
-  appId: "1:1044182496668:web:0cce99dfeb0a2d9cd88459"
-};
-
-firebase.initializeApp(firebaseConfig);
-
-const db = firebase.firestore();
-const storage = firebase.storage();
-</script>
-
 </head>
 
 <body>
 
-<button id="admin-btn">⚙️</button>
-
-<div class="admin-panel" id="admin-panel">
-    <input type="password" id="admin-pass" placeholder="Пароль">
-
-    <div id="admin-content" style="display:none;">
-        <input id="title-ru" placeholder="Заголовок RU">
-        <input id="title-en" placeholder="Title EN">
-        <input id="author" placeholder="Автор">
-        <textarea id="text-ru" placeholder="Текст RU"></textarea>
-        <textarea id="text-en" placeholder="Text EN"></textarea>
-        <input type="file" id="image">
-        <button onclick="addArticle()">Добавить</button>
-    </div>
-</div>
-
+<!-- UI -->
 <button id="theme-toggle">🌙</button>
 <button id="lang-toggle">EN</button>
 
@@ -58,30 +21,137 @@ const storage = firebase.storage();
 
     <div class="slides">
 
-        <section class="slide intro active" id="intro-slide">
+        <!-- INTRO -->
+        <section class="slide intro active">
             <div class="intro-overlay">
                 <h1 data-ru="Кукуруза News" data-en="Kukuruza News"></h1>
+
                 <p data-ru="Современная интернет-газета о людях, культуре и мнениях."
                    data-en="A modern online newspaper about people, culture, and opinions."></p>
+
+                <p data-ru="→ Нажми стрелку справа"
+                   data-en="→ Press the right arrow"></p>
             </div>
         </section>
+
+        <!-- ARTICLE 1 -->
+        <article class="slide">
+            <h2 data-ru="Как зарядить батарею и выглядеть на все 100!"
+                data-en="How to charge the battery and look your best!"></h2>
+
+            <p class="author"
+               data-ru="Автор: Полина Каптилович"
+               data-en="Author: Polina Kaptilovich"></p>
+
+            <p data-ru="ЗДЕСЬ ТВОЙ ТЕКСТ RU"
+               data-en="HERE YOUR TEXT EN"></p>
+
+            <img class="article-image" src="images/article1.jpg">
+        </article>
+
+        <!-- ARTICLE 2 -->
+        <article class="slide">
+            <h2 data-ru="Город добрых дел"
+                data-en="City of Good Deeds"></h2>
+
+            <p class="author"
+               data-ru="Автор: Шиманович Карина"
+               data-en="Author: Shimanovich Karina"></p>
+
+            <p data-ru="ТЕКСТ RU"
+               data-en="TEXT EN"></p>
+
+            <img class="article-image" src="images/article2.jpg">
+        </article>
+
+        <!-- ARTICLE 3 -->
+        <article class="slide">
+            <h2 data-ru="Боль, дружба и мотоцикл"
+                data-en="Pain, friendship and a motorcycle"></h2>
+
+            <p class="author"
+               data-ru="Автор: Виктория Билостецкая"
+               data-en="Author: Victoria Bilostetskaya"></p>
+
+            <p data-ru="ТЕКСТ RU"
+               data-en="TEXT EN"></p>
+
+            <img class="article-image" src="images/article3.jpg">
+        </article>
+
+        <!-- ARTICLE 4 -->
+        <article class="slide">
+            <h2 data-ru="Кореличский район"
+                data-en="Korelichi district"></h2>
+
+            <p class="author"
+               data-ru="Автор: Дмитрий Яхно"
+               data-en="Author: Dmitry Yakhno"></p>
+
+            <p data-ru="ТЕКСТ RU"
+               data-en="TEXT EN"></p>
+
+            <img class="article-image" src="images/article4.jpg">
+        </article>
+
+        <!-- ARTICLE 5 -->
+        <article class="slide">
+            <h2 data-ru="Летние каникулы"
+                data-en="Summer holidays"></h2>
+
+            <p class="author"
+               data-ru="Автор: Стас Починчик"
+               data-en="Author: Stas Pochinchuk"></p>
+
+            <p data-ru="ТЕКСТ RU"
+               data-en="TEXT EN"></p>
+
+            <img class="article-image" src="images/article5.jpg">
+        </article>
+
+        <!-- ARTICLE 6 -->
+        <article class="slide">
+            <h2 data-ru="Наука сегодня"
+                data-en="Science today"></h2>
+
+            <p class="author"
+               data-ru="Автор: Алексей Бабанский"
+               data-en="Author: Aliaksei Babanski"></p>
+
+            <p data-ru="ТЕКСТ RU"
+               data-en="TEXT EN"></p>
+
+            <img class="article-image" src="images/article6.jpg">
+        </article>
+
+        <!-- ARTICLE 7 -->
+        <article class="slide">
+            <h2 data-ru="Здоровый образ жизни"
+                data-en="Healthy lifestyle"></h2>
+
+            <p class="author"
+               data-ru="Автор: Бында Злата"
+               data-en="Author: Bynda Zlata"></p>
+
+            <p data-ru="ТЕКСТ RU"
+               data-en="TEXT EN"></p>
+
+            <img class="article-image" src="images/article7.jpg">
+        </article>
 
     </div>
 </div>
 
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-
+// ================= SLIDES =================
 let current = 0;
-let slides = document.querySelectorAll(".slide");
 
-function refreshSlides(){
-    slides = document.querySelectorAll(".slide");
+function getSlides(){
+    return document.querySelectorAll(".slide");
 }
 
 function showSlide(index){
-
-    refreshSlides();
+    const slides = getSlides();
 
     slides.forEach(s => s.classList.remove("active"));
 
@@ -90,17 +160,10 @@ function showSlide(index){
 
     current = index;
     slides[current].classList.add("active");
-
-    updateScrollLock();
 }
 
-window.nextSlide = () => showSlide(current + 1);
-window.prevSlide = () => showSlide(current - 1);
-
-function updateScrollLock(){
-    const isIntro = slides[current].classList.contains("intro");
-    document.body.style.overflow = isIntro ? "hidden" : "auto";
-}
+function nextSlide(){ showSlide(current + 1); }
+function prevSlide(){ showSlide(current - 1); }
 
 // ================= LANGUAGE =================
 let lang = "ru";
@@ -132,87 +195,11 @@ document.getElementById("theme-toggle").onclick = () => {
     updateTheme();
 };
 
-// ================= ADMIN =================
-const adminBtn = document.getElementById("admin-btn");
-const adminPanel = document.getElementById("admin-panel");
-
-adminBtn.onclick = () => {
-    adminPanel.style.display = "flex";
-};
-
-document.getElementById("admin-pass").oninput = (e) => {
-    if(e.target.value === "1243"){
-        document.getElementById("admin-content").style.display = "flex";
-    }
-};
-
-//  FIX: теперь работает глобально
-async function addArticle(){
-
-    const titleRU = document.getElementById("title-ru").value;
-    const titleEN = document.getElementById("title-en").value;
-    const textRU = document.getElementById("text-ru").value;
-    const textEN = document.getElementById("text-en").value;
-    const author = document.getElementById("author").value;
-    const file = document.getElementById("image").files[0];
-
-    let imageUrl = "";
-
-    if(file){
-        const ref = storage.ref("images/" + Date.now() + file.name);
-        await ref.put(file);
-        imageUrl = await ref.getDownloadURL();
-    }
-
-    await db.collection("articles").add({
-        titleRU, titleEN, textRU, textEN, author, imageUrl,
-        date: new Date()
-    });
-
-    alert("Статья добавлена!");
-}
-
-//  FIX: глобальная доступность для onclick
-window.addArticle = addArticle;
-
-// ================= LOAD ARTICLES =================
-async function loadArticles(){
-
-    const snapshot = await db.collection("articles").get();
-
-    snapshot.forEach(doc => {
-        const data = doc.data();
-
-        const article = document.createElement("article");
-        article.className = "slide";
-
-        article.innerHTML = `
-            <div class="site-header">
-                <div class="site-title">Кукуруза.com</div>
-                <div class="date">${new Date().toLocaleDateString()}</div>
-            </div>
-
-            <h2 data-ru="${data.titleRU}" data-en="${data.titleEN}"></h2>
-            <p class="author">${data.author}</p>
-            <p data-ru="${data.textRU}" data-en="${data.textEN}"></p>
-            <img class="article-image" src="${data.imageUrl}">
-        `;
-
-        document.querySelector(".slides").appendChild(article);
-    });
-
-    refreshSlides();
-    updateLang();
-    showSlide(current);
-}
-
-loadArticles();
-
 // ================= INIT =================
-updateLang();
-updateTheme();
-showSlide(0);
-
+document.addEventListener("DOMContentLoaded", () => {
+    updateLang();
+    updateTheme();
+    showSlide(0);
 });
 </script>
 
