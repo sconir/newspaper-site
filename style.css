@@ -1,47 +1,69 @@
-body {
-    margin: 0;
-    font-family: Arial;
-    background: #f5f5f5;
+/* ===== INTRO ===== */
+.intro {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    transition: background 1s ease;
 }
 
-/* LOGO */
-.logo {
+.intro-overlay {
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(15px);
+    padding: 30px;
+    border-radius: 15px;
     text-align: center;
-    padding: 20px;
 }
 
-/* FEED */
-.feed {
-    display: grid;
-    gap: 20px;
+body.dark-mode .intro-overlay {
+    background: rgba(0,0,0,0.4);
+    color: white;
+}
+
+/* ===== SLIDER ===== */
+.slider {
+    display: none;
+    padding: 40px;
+}
+
+.slide {
+    display: none;
     max-width: 800px;
     margin: auto;
 }
 
-.card {
+.slide.active {
     display: block;
-    background: white;
-    padding: 20px;
-    text-decoration: none;
-    color: black;
-    border-radius: 10px;
 }
 
-/* ARTICLE PAGE */
-.article {
-    max-width: 800px;
-    margin: auto;
-    background: white;
-    padding: 20px;
+/* ===== NAV ===== */
+.nav {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 40px;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 2000;
 }
 
-.article img {
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* ===== IMAGE ===== */
+.article-image {
     width: 100%;
     border-radius: 10px;
+    margin-top: 20px;
 }
 
-/* BACK */
-.back {
-    display: block;
-    padding: 15px;
+/* ===== BUTTONS ===== */
+#theme-toggle, #lang-toggle {
+    position: fixed;
+    top: 20px;
+    z-index: 3000;
 }
+#theme-toggle { right: 20px; }
+#lang-toggle { right: 70px; }
