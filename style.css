@@ -1,49 +1,104 @@
 body {
     margin: 0;
     font-family: Arial;
-    background: #f4f1ea;
-    color: #111;
+    background: var(--bg);
+    color: var(--text);
 }
 
-/* TOP PAGE */
-.top-bar {
+/* THEME */
+:root {
+    --bg: #f4f1ea;
+    --text: #111;
+    --glass: rgba(255,255,255,0.2);
+}
+
+body.dark {
+    --bg: #0f0f0f;
+    --text: #fff;
+    --glass: rgba(0,0,0,0.3);
+}
+
+/* TOP BUTTONS */
+#theme-toggle, #lang-toggle {
+    position: fixed;
+    top: 15px;
+    z-index: 9999;
+}
+
+#theme-toggle { right: 20px; }
+#lang-toggle { right: 80px; }
+
+/* HERO */
+.hero {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-bg {
     position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translateX(-50%);
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: blur(20px);
+    transform: scale(1.1);
+}
+
+.glass {
+    background: var(--glass);
+    backdrop-filter: blur(15px);
+    padding: 40px;
+    border-radius: 20px;
     text-align: center;
 }
 
-/* BUTTON */
-.main-btn {
-    padding: 12px 20px;
-    margin-top: 20px;
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-buttons button {
+    margin: 10px;
+    padding: 10px 20px;
     cursor: pointer;
 }
 
-/* BACKGROUND SLIDER */
-.bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background-size: cover;
-    background-position: center;
-    transition: opacity 1s ease;
-    opacity: 1;
+/* PANEL */
+.panel {
+    padding: 40px;
+}
+
+.hidden {
+    display: none;
+}
+
+.article-card {
+    padding: 20px;
+    margin: 15px 0;
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 /* ARTICLE PAGE */
-.article-page {
+.article {
     max-width: 800px;
     margin: 80px auto;
     padding: 20px;
 }
 
-/* DARK MODE */
-.dark {
-    background: #111;
-    color: white;
+.article-img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.back {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    font-size: 24px;
 }
