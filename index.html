@@ -8,26 +8,156 @@
 
 <body>
 
-<h1 class="logo">Kukuruza News</h1>
+<!-- ================= UI ================= -->
+<button id="theme-toggle">🌙</button>
+<button id="lang-toggle">EN</button>
 
-<div class="feed">
+<footer id="global-footer">© Кукуруза.com</footer>
 
-    <a class="card" href="article.html?id=1">
-        <h2>Как зарядить батарею</h2>
-        <p>ЗОЖ и энергия...</p>
-    </a>
+<!-- ================= INTRO PAGE ================= -->
+<section id="intro" class="intro active">
 
-    <a class="card" href="article.html?id=2">
-        <h2>Город добрых дел</h2>
-        <p>Благотворительность...</p>
-    </a>
+    <div class="intro-overlay">
+        <h1 data-ru="Kukuruza News" data-en="Kukuruza News"></h1>
 
-    <a class="card" href="article.html?id=3">
-        <h2>Боль и дружба</h2>
-        <p>Книги Анны Джейн...</p>
-    </a>
+        <p data-ru="Современная интернет-газета о людях, культуре и технологиях"
+           data-en="A modern online newspaper about people, culture and technology"></p>
 
+        <button id="enter-btn"
+            data-ru="Перейти к статьям"
+            data-en="Enter articles">
+            Перейти к статьям
+        </button>
+    </div>
+
+</section>
+
+<!-- ================= SLIDER ================= -->
+<div class="slider" id="slider">
+
+    <button class="nav prev" onclick="prevSlide()">❮</button>
+    <button class="nav next" onclick="nextSlide()">❯</button>
+
+    <div class="slides">
+
+        <!-- ===== ARTICLE 1 ===== -->
+        <article class="slide active">
+            <h2 data-ru="Здоровый образ жизни" data-en="Healthy lifestyle"></h2>
+            <p data-ru="Текст статьи 1..." data-en="Article text 1..."></p>
+            <img src="images/article1.jpg" class="article-image">
+        </article>
+
+        <!-- ===== ARTICLE 2 ===== -->
+        <article class="slide">
+            <h2 data-ru="Благотворительность" data-en="Charity"></h2>
+            <p data-ru="Текст статьи 2..." data-en="Article text 2..."></p>
+            <img src="images/article2.jpg" class="article-image">
+        </article>
+
+        <!-- ===== ARTICLE 3 ===== -->
+        <article class="slide">
+            <h2 data-ru="Книги и эмоции" data-en="Books and emotions"></h2>
+            <p data-ru="Текст статьи 3..." data-en="Article text 3..."></p>
+            <img src="images/article3.jpg" class="article-image">
+        </article>
+
+    </div>
 </div>
+
+<script>
+
+// ================= STATE =================
+let lang = "ru";
+let dark = false;
+
+const intro = document.getElementById("intro");
+const slider = document.getElementById("slider");
+const slides = document.querySelectorAll(".slide");
+let current = 0;
+
+// ================= INIT =================
+document.addEventListener("DOMContentLoaded", () => {
+    updateLang();
+    updateTheme();
+
+    slider.style.display = "none"; // статьи скрыты сначала
+});
+
+// ================= ENTER BUTTON =================
+document.getElementById("enter-btn").onclick = () => {
+    intro.style.display = "none";
+    slider.style.display = "block";
+    showSlide(0);
+};
+
+// ================= SLIDES =================
+function showSlide(index){
+
+    slides.forEach(s => s.classList.remove("active"));
+
+    if(index < 0) index = slides.length - 1;
+    if(index >= slides.length) index = 0;
+
+    current = index;
+    slides[current].classList.add("active");
+
+    // FIX: всегда прокрутка вверх (твоя проблема)
+    window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function nextSlide(){ showSlide(current + 1); }
+function prevSlide(){ showSlide(current - 1); }
+
+// ================= LANGUAGE =================
+function updateLang(){
+    document.querySelectorAll("[data-ru]").forEach(el=>{
+        el.innerText = el.getAttribute(`data-${lang}`);
+    });
+
+    document.getElementById("lang-toggle").innerText =
+        lang === "ru" ? "EN" : "RU";
+}
+
+document.getElementById("lang-toggle").onclick = () => {
+    lang = lang === "ru" ? "en" : "ru";
+    updateLang();
+};
+
+// ================= THEME =================
+function updateTheme(){
+    document.body.classList.toggle("dark-mode", dark);
+    document.getElementById("theme-toggle").innerText = dark ? "☀️" : "🌙";
+}
+
+document.getElementById("theme-toggle").onclick = () => {
+    dark = !dark;
+    updateTheme();
+};
+
+// ================= PRO BACKGROUND (10 RANDOM IMAGES) =================
+const introImages = [
+    "images/intro1.jpg",
+    "images/intro2.jpg",
+    "images/intro3.jpg",
+    "images/intro4.jpg",
+    "images/intro5.jpg",
+    "images/intro6.jpg",
+    "images/intro7.jpg",
+    "images/intro8.jpg",
+    "images/intro9.jpg",
+    "images/intro10.jpg"
+];
+
+function setRandomBackground(){
+    const img = introImages[Math.floor(Math.random() * introImages.length)];
+    intro.style.backgroundImage = `url('${img}')`;
+}
+
+// каждые 10 секунд
+setInterval(setRandomBackground, 10000);
+setRandomBackground();
+
+</script>
 
 </body>
 </html>
