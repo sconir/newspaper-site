@@ -2,179 +2,45 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<title>Kukuruza News</title>
+<title>Article</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<button id="theme-toggle">🌙</button>
-<button id="lang-toggle">EN</button>
+<a href="index.html" class="back">← Назад</a>
 
-<footer id="global-footer">© Кукуруза.com, все права защищены</footer>
-
-<div class="slider">
-
-    <button class="nav prev" onclick="prevSlide()">❮</button>
-    <button class="nav next" onclick="nextSlide()">❯</button>
-
-    <div class="slides">
-
-        <!-- INTRO -->
-        <section class="slide intro active" id="intro-slide">
-            <div class="intro-overlay">
-                <h1 data-ru="Кукуруза News" data-en="Kukuruza News"></h1>
-                <p data-ru="Современная интернет-газета о людях, культуре и мнениях."
-                   data-en="A modern online newspaper about people, culture, and opinions."></p>
-                <p class="hint"
-                   data-ru="→ Нажми стрелку справа"
-                   data-en="→ Press the right arrow"></p>
-            </div>
-        </section>
-
-        <!-- ARTICLE 1 -->
-        <article class="slide">
-            <h2 data-ru="Как зарядить батарею и выглядеть на все 100!"
-                data-en="How to charge the battery and look your best!"></h2>
-            <p data-ru="Привет! ЗОЖ..." 
-               data-en="Hello! Healthy lifestyle..."></p>
-            <img class="article-image" src="images/article1.jpg">
-        </article>
-
-        <!-- ARTICLE 2 -->
-        <article class="slide">
-            <h2 data-ru="Город добрых дел"
-                data-en="City of Good Deeds"></h2>
-            <p data-ru="Благотворительность..." 
-               data-en="Charity..."></p>
-            <img class="article-image" src="images/article2.jpg">
-        </article>
-
-        <!-- ARTICLE 3 -->
-        <article class="slide">
-            <h2 data-ru="Боль, дружба и мотоцикл"
-                data-en="Pain, friendship ad a motorcycle"></h2>
-            <p data-ru="Книги Анны Джейн..." 
-               data-en="Anna Jane books..."></p>
-            <img class="article-image" src="images/article3.jpg">
-        </article>
-
-        <!-- ARTICLE 4 -->
-        <article class="slide">
-            <h2 data-ru="Кореличский район"
-                data-en="Korelichi District"></h2>
-            <p data-ru="Достопримечательности..." 
-               data-en="Attractions..."></p>
-            <img class="article-image" src="images/article4.jpg">
-        </article>
-
-        <!-- ARTICLE 5 -->
-        <article class="slide">
-            <h2 data-ru="Летние каникулы"
-                data-en="Summer holidays"></h2>
-            <p data-ru="Как проводить лето..." 
-               data-en="How to spend summer..."></p>
-            <img class="article-image" src="images/article5.jpg">
-        </article>
-
-        <!-- ARTICLE 6 -->
-        <article class="slide">
-            <h2 data-ru="Наука и будущее"
-                data-en="Science and future"></h2>
-            <p data-ru="Открытия MIT..." 
-               data-en="MIT discoveries..."></p>
-            <img class="article-image" src="images/article6.jpg">
-        </article>
-
-        <!-- ARTICLE 7 -->
-        <article class="slide">
-            <h2 data-ru="ЗОЖ для подростков"
-                data-en="Healthy lifestyle for teens"></h2>
-            <p data-ru="Здоровье важно..." 
-               data-en="Health is important..."></p>
-            <img class="article-image" src="images/article7.jpg">
-        </article>
-
-    </div>
-</div>
+<div id="article" class="article"></div>
 
 <script>
-let current = 0;
-const slides = document.querySelectorAll(".slide");
-
-// ================= INIT =================
-document.addEventListener("DOMContentLoaded", () => {
-    updateLang();
-    updateTheme();
-    showSlide(0);
-    startIntroBackground();
-});
-
-// ================= SLIDES =================
-function showSlide(index){
-    slides.forEach(s => s.classList.remove("active"));
-
-    if(index < 0) index = slides.length - 1;
-    if(index >= slides.length) index = 0;
-
-    current = index;
-    slides[current].classList.add("active");
-
-    window.scrollTo({ top: 0, behavior: "smooth" });
+const articles = {
+1: {
+title: "Как зарядить батарею",
+text: "Полный текст статьи 1...",
+img: "images/article1.jpg"
+},
+2: {
+title: "Город добрых дел",
+text: "Полный текст статьи 2...",
+img: "images/article2.jpg"
+},
+3: {
+title: "Боль и дружба",
+text: "Полный текст статьи 3...",
+img: "images/article3.jpg"
 }
-
-function nextSlide(){ showSlide(current + 1); }
-function prevSlide(){ showSlide(current - 1); }
-
-// ================= LANGUAGE =================
-let lang = "ru";
-
-function updateLang(){
-    document.querySelectorAll("[data-ru]").forEach(el=>{
-        el.innerText = el.getAttribute(`data-${lang}`);
-    });
-
-    document.getElementById("lang-toggle").innerText =
-        lang === "ru" ? "EN" : "RU";
-}
-
-document.getElementById("lang-toggle").onclick = () => {
-    lang = lang === "ru" ? "en" : "ru";
-    updateLang();
 };
 
-// ================= THEME =================
-let dark = false;
+const params = new URLSearchParams(location.search);
+const id = params.get("id");
 
-function updateTheme(){
-    document.body.classList.toggle("dark-mode", dark);
-    document.getElementById("theme-toggle").innerText = dark ? "☀️" : "🌙";
-}
+const a = articles[id];
 
-document.getElementById("theme-toggle").onclick = () => {
-    dark = !dark;
-    updateTheme();
-};
-
-// ================= PRO INTRO BACKGROUND =================
-const introSlide = document.getElementById("intro-slide");
-
-const bgImages = [
-"images/intro1.jpg","images/intro2.jpg","images/intro3.jpg",
-"images/intro4.jpg","images/intro5.jpg",
-"images/intro6.jpg","images/intro7.jpg",
-"images/intro8.jpg","images/intro9.jpg","images/intro10.jpg"
-];
-
-function randomBg(){
-    const img = bgImages[Math.floor(Math.random() * bgImages.length)];
-    introSlide.style.backgroundImage = `url('${img}')`;
-}
-
-function startIntroBackground(){
-    randomBg();
-    setInterval(randomBg, 10000);
-}
+document.getElementById("article").innerHTML = `
+    <h1>${a.title}</h1>
+    <img src="${a.img}">
+    <p>${a.text}</p>
+`;
 </script>
 
 </body>
