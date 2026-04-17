@@ -193,14 +193,14 @@ body.intro-lock {
     overflow: hidden;
     height: 100vh;
 }
+
 #admin-btn {
     position: fixed;
     bottom: 20px;
     left: 20px;
-    z-index: 1000;
-    padding: 10px 14px;
+    z-index: 2000;
+    padding: 10px;
     border-radius: 10px;
-    border: none;
     cursor: pointer;
 }
 
@@ -210,12 +210,26 @@ body.intro-lock {
     left: 50%;
     transform: translate(-50%, -50%);
     background: white;
+    width: 400px;
+    max-height: 80vh;
+    overflow-y: auto;
     padding: 20px;
-    z-index: 2000;
+    border-radius: 15px;
     display: none;
     flex-direction: column;
     gap: 10px;
-    width: 300px;
+    z-index: 3000;
+}
+
+.admin-panel input,
+.admin-panel textarea {
+    width: 100%;
+    padding: 8px;
+}
+
+.admin-panel button {
+    padding: 10px;
+    cursor: pointer;
 }
 
 .dark-mode .admin-panel {
