@@ -5,9 +5,6 @@
 <title>Kukuruza News</title>
 <link rel="stylesheet" href="style.css">
 </head>
-
-<body>
-
 <!-- Firebase -->
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
@@ -32,6 +29,8 @@ const db = firebase.firestore();
 // Хранилище (для картинок)
 const storage = firebase.storage();
 </script>
+<button id="admin-btn">⚙️</button>
+<body>
 
 <button id="theme-toggle">🌙</button>
 <button id="lang-toggle">EN</button>
